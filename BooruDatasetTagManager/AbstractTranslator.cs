@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BooruDatasetTagManager
@@ -26,12 +27,21 @@ namespace BooruDatasetTagManager
                     {
                         return new ChineseTranslator();
                     }
+                case TranslationService.CustomTranslate:
+                    {
+                        return new CustomTranslator();
+                    }
                 default:
                     throw new NotImplementedException("Translation service not implemented");
             }
         }
 
         public virtual async Task<string> TranslateAsync(string text, string fromLang, string toLang)
+        {
+            return null;
+        }
+
+        public virtual async Task<Dictionary<string, string>> TranslateAsync(CancellationToken cancellationToken, IEnumerable<string> contentList, string fromLang, string toLang)
         {
             return null;
         }

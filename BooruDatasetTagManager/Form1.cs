@@ -1,21 +1,14 @@
-﻿using Microsoft.Win32.SafeHandles;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Runtime.InteropServices;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Translator;
 using static BooruDatasetTagManager.DatasetManager;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace BooruDatasetTagManager
 {
@@ -108,19 +101,70 @@ namespace BooruDatasetTagManager
             gridViewDS.AutoResizeColumns();
         }
 
+        private CancellationTokenSource cancellationTokenSource;
         private async Task FillTranslation(DataGridView grid)
         {
             LockEdit(true);
             SetStatus("Translating, please wait...");
             try
             {
-                HttpClient client = new HttpClient();
-                for (int i = 0; i < grid.RowCount; i++)
+
+                List<string> toTrans = new List<string>();
+                for (int n = 0; n < grid.RowCount; n++)
                 {
-                    SetStatus($"Translation {i}/{grid.RowCount}");
-                    grid["Translation", i].ReadOnly = true;
-                    grid["Translation", i].Value = await Program.TransManager.TranslateAsync(grid[0, i].Value as string);
+                    toTrans.Add((string)grid[0, n].Value);
                 }
+
+                cancellationTokenSource = new CancellationTokenSource();
+                CancellationToken cancellationToken = cancellationTokenSource.Token;
+
+                List<List<string>> groupList = new List<List<string>>();
+                const int splitRequestTransCount = 10;
+                if (toTrans.Count > splitRequestTransCount)
+                {
+                    groupList = toTrans.Select((x, y) => new { Index = y, Value = x })
+                                     .GroupBy(x => x.Index / splitRequestTransCount)
+                                     .Select(x => x.Select(v => v.Value).ToList())
+                                     .ToList();
+                }
+                else
+                {
+                    groupList.Add(toTrans);
+                }
+
+                int i = 0;
+                int max = toTrans.Count;
+                int k = 0;
+                foreach (var list in groupList)
+                {
+                    k++;
+                    SetStatus($"Trans group {k}/{groupList.Count}");
+
+                    for (int z = i; z < max; z++)
+                    {
+                        grid["Translation", z].Value = "...";
+                    }
+
+                    List<string> textList = await Program.TransManager.TranslateAsync(cancellationToken, list);
+                    if (!cancellationToken.IsCancellationRequested && !(textList == null || textList.Count == 0))
+                    {
+                        for (int j = 0; j < textList.Count; j++)
+                        {
+                            grid["Translation", j + i].ReadOnly = true;
+                            grid["Translation", j + i].Value = textList[j];
+                        }
+
+                    }
+                    i += list.Count;
+                }
+
+
+                //for (int i = 0; i < grid.RowCount; i++)
+                //{
+                //    SetStatus($"Translation {i}/{grid.RowCount}");
+                //    grid["Translation", i].ReadOnly = true;
+                //    grid["Translation", i].Value = await Program.TransManager.TranslateAsync(grid[0, i].Value as string);
+                //}
             }
             catch (Exception ex)
             {
@@ -241,7 +285,7 @@ namespace BooruDatasetTagManager
                 }
             }
             gridViewDS.Focus();
-            if (isTranslate)
+            if (isTranslate && gridViewDS.SelectedRows.Count == 1)
                 await FillTranslation(gridViewTags);
             SetChangedStatus(false);
         }
@@ -808,13 +852,13 @@ namespace BooruDatasetTagManager
             translateTagsToolStripMenuItem.Checked = isTranslate;
             if (isTranslate)
             {
-                gridViewAllTags.Columns.Insert(1, new DataGridViewTextBoxColumn()
-                {
-                    Name = "Translation",
-                    HeaderText = "Translation",
-                    ReadOnly = true,
-                    AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-                });
+                //gridViewAllTags.Columns.Insert(1, new DataGridViewTextBoxColumn()
+                //{
+                //    Name = "Translation",
+                //    HeaderText = "Translation",
+                //    ReadOnly = true,
+                //    AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                //});
                 gridViewTags.Columns.Insert(1, new DataGridViewTextBoxColumn()
                 {
                     Name = "Translation",
@@ -822,7 +866,7 @@ namespace BooruDatasetTagManager
                     ReadOnly = true,
                     AutoSizeMode = gridViewTags.Columns.Contains("Image") ? DataGridViewAutoSizeColumnMode.AllCellsExceptHeader : DataGridViewAutoSizeColumnMode.Fill
                 });
-                await FillTranslation(gridViewAllTags);
+                //await FillTranslation(gridViewAllTags);
                 await FillTranslation(gridViewTags);
             }
             else
@@ -1046,6 +1090,54 @@ namespace BooruDatasetTagManager
             AddSelectedAllTagsToImageTags();
         }
 
+        private CancellationTokenSource singleTransCancellationTokenSource;
+        private bool hasTrans = false;
+        private async void dataGridView2_CellMoucseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == 0)
+            {
+                if (gridViewAllTags.Columns.Contains("Translation") && gridViewAllTags["Translation", e.RowIndex].Value != null && !string.IsNullOrWhiteSpace(gridViewAllTags["Translation", e.RowIndex].Value.ToString()))
+                {
+                    return;
+                }
+
+                DataGridViewCell cell = gridViewAllTags.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                string value = cell.Value.ToString();
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    if (hasTrans)
+                    {
+                        singleTransCancellationTokenSource?.Cancel();
+                        hasTrans = false;
+                    }
+
+                    singleTransCancellationTokenSource = new CancellationTokenSource();
+                    CancellationToken cancellationToken = singleTransCancellationTokenSource.Token;
+                    hasTrans = true;
+                    //cell.ToolTipText = (await Program.TransManager.TranslateAsync(cancellationToken, new List<string> { value }))?.First() ?? "";
+                    string text = (await Program.TransManager.TranslateAsync(cancellationToken, new List<string> { value }))?.First() ?? "";
+                    hasTrans = false;
+                    //gridViewAllTags.ShowCellToolTips = false;
+                    //gridViewAllTags.ShowCellToolTips = true;
+
+
+                    if (!gridViewAllTags.Columns.Contains("Translation"))
+                    {
+                        gridViewAllTags.Columns.Insert(1, new DataGridViewTextBoxColumn()
+                        {
+                            Name = "Translation",
+                            HeaderText = "Translation",
+                            ReadOnly = true,
+                            AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                        });
+                    }
+
+                    gridViewAllTags["Translation", e.RowIndex].ReadOnly = true;
+                    gridViewAllTags["Translation", e.RowIndex].Value = text;
+                }
+
+            }
+        }
         private void dataGridView3_DataSourceChanged(object sender, EventArgs e)
         {
 
@@ -1191,17 +1283,42 @@ namespace BooruDatasetTagManager
                 string editedValue = (string)gridViewTags[e.ColumnIndex, e.RowIndex].Value;
                 if (gridViewDS.SelectedRows.Count == 1)
                 {
+                    //for (int i = 0; i < gridViewTags.RowCount; i++)
+                    //{
+                    //    if (i != e.RowIndex && (string)gridViewTags[e.ColumnIndex, i].Value == editedValue)
+                    //    {
+                    //        this.BeginInvoke(new MethodInvoker(() =>
+                    //        {
+                    //            gridViewTags.Rows.RemoveAt(e.RowIndex);
+                    //        }));
+
+                    //    }
+                    //}
+
+
+                    bool del = false;
                     for (int i = 0; i < gridViewTags.RowCount; i++)
                     {
                         if (i != e.RowIndex && (string)gridViewTags[e.ColumnIndex, i].Value == editedValue)
                         {
-                            this.BeginInvoke(new MethodInvoker(() =>
-                            {
-                                gridViewTags.Rows.RemoveAt(e.RowIndex);
-                            }));
-
+                            del = true;
                         }
                     }
+                    var rowIdx = e.RowIndex;
+                    var columnIdx = e.ColumnIndex;
+                    this.BeginInvoke(new MethodInvoker(() =>
+                    {
+                        if (del)
+                        {
+                            gridViewTags.Rows.RemoveAt(e.RowIndex);
+                        }
+                        else
+                        {
+                            AfterEdit(columnIdx, rowIdx);
+                        }
+                    }));
+
+
                 }
                 else if (gridViewDS.SelectedRows.Count > 1)
                 {
@@ -1219,6 +1336,65 @@ namespace BooruDatasetTagManager
                         gridViewTags["Name", e.RowIndex].Tag = gridViewTags["ImageTags", e.RowIndex].Value;
                     }
                 }
+            }
+        }
+
+
+        private async void AfterEdit(int columnIdx, int rowid)
+        {
+            if (rowid == -1)
+            {
+                return;
+            }
+            if (gridViewTags.RowCount == 0)
+            {
+                return;
+            }
+            var editCell = this.gridViewTags[columnIdx, rowid];
+            if (editCell == null || editCell.Value == null)
+            {
+                return;
+            }
+
+            int targetColumnIndex = 1;
+            if (editCell.OwningColumn.Name == "Translation")
+            {
+                targetColumnIndex = 0;
+            }
+
+            LockEdit(locked: true);
+            SetStatus("Translating...");
+
+
+            int currentRowIndex = rowid;
+            string currentCellValue = editCell.Value.ToString();
+            if (!string.IsNullOrWhiteSpace(currentCellValue))
+            {
+                AddTranslateColumnIfExist();
+
+
+                gridViewTags[targetColumnIndex, currentRowIndex].Value = "开始翻译...";
+
+                string text = await Program.TransManager.TranslateAsync(currentCellValue);
+
+                if (!string.IsNullOrWhiteSpace(text))
+                {
+                    gridViewTags[targetColumnIndex, currentRowIndex].Value = text;
+                }
+
+                SetStatus("翻译结束");
+                LockEdit(locked: false);
+            }
+        }
+
+        private void AddTranslateColumnIfExist()
+        {
+
+            if (!gridViewTags.Columns.Contains("Translation"))
+            {
+                gridViewTags.Columns.Add("Translation", "Translation");
+                gridViewTags.Columns["Translation"].ReadOnly = true;
+                gridViewTags.Columns["Translation"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
         }
 

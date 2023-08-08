@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net6.0-windows;net472</TargetFrameworks>
+    <TargetFrameworks>net472</TargetFrameworks>
     <OutputType>WinExe</OutputType>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -58,7 +58,13 @@
     <Content Include="BDTM.ico" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	  <Reference Include="Newtonsoft.Json">
+	    <HintPath>..\..\..\BabyWork\LeoCore\netstandard2.1\Core\Newtonsoft.Json.dll</HintPath>
+	  </Reference>
+	  <Reference Include="System.Configuration" />
+	  <Reference Include="System.Core" />
+	  <Reference Include="System.Net.Http" />
+	  <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Properties\Settings.settings">
@@ -71,6 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Translations\" />
+    <Folder Include="Translator\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">

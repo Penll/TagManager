@@ -9,7 +9,8 @@ namespace BooruDatasetTagManager
     public enum TranslationService
     {
         GoogleTranslate,
-        ChineseTranslate
+        ChineseTranslate,
+        CustomTranslate,
     }
 
     public enum AutocompleteMode

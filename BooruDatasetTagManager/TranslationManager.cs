@@ -1,13 +1,10 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
+using System.Security.Policy;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
-using Translator.Crypto;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace BooruDatasetTagManager
 {
@@ -32,9 +29,10 @@ namespace BooruDatasetTagManager
         {
             if (!File.Exists(translationFilePath))
             {
-                var sw = File.CreateText(translationFilePath);
-                sw.WriteLine("//Translation format: <original>=<translation>");
-                sw.Dispose();
+                using (var sw = File.CreateText(translationFilePath))
+                {
+                    sw.WriteLine("//Translation format: <original>=<translation>");
+                }
                 return;
             }
             string[] lines = File.ReadAllLines(translationFilePath);
@@ -65,12 +63,48 @@ namespace BooruDatasetTagManager
             return GetTranslation(text.ToLower().Trim().GetHash());
         }
 
+
+        public List<string> GetTranslation(IEnumerable<string> textList)
+        {
+            return GetTranslation(textList.Select(o => o.ToLower().Trim().GetHash()));
+        }
+
         public string GetTranslation(long hash)
         {
             var res = Translations.FirstOrDefault(a => a.OrigHash == hash);
             if (res == null)
                 return null;
             return res.Trans;
+        }
+
+
+        public List<string> GetTranslation(IEnumerable<long> hashList)
+        {
+            List<string> result = new List<string>(hashList.Count());
+            bool hasBreak = false;
+            hashList.ToList().ForEach(hash =>
+            {
+                if (hasBreak)
+                {
+                    return;
+                }
+
+                var res = Translations.FirstOrDefault(a => a.OrigHash == hash);
+                if (res == null)
+                {
+                    hasBreak = true;
+                    return;
+                }
+
+                result.Add(res.Trans);
+            });
+
+            if (hasBreak)
+            {
+                return new List<string>();
+            }
+
+            return result;
         }
 
         public string GetTranslation(long hash, bool onlyManual)
@@ -94,6 +128,16 @@ namespace BooruDatasetTagManager
                 return GetTranslation(text);
             });
         }
+
+
+        public async Task<List<string>> GetTranslationAsync(IEnumerable<string> textList)
+        {
+            return await Task.Run(() =>
+            {
+                return GetTranslation(textList);
+            });
+        }
+
         public void AddTranslation(string orig, string trans, bool isManual)
         {
             File.AppendAllText(translationFilePath, $"{orig}={trans}\r\n", Encoding.UTF8);
@@ -102,9 +146,11 @@ namespace BooruDatasetTagManager
 
         public async Task AddTranslationAsync(string orig, string trans, bool isManual)
         {
-            StreamWriter sw = new StreamWriter(translationFilePath, true, Encoding.UTF8);
-            await sw.WriteLineAsync($"{(isManual ? "*" : "")}{orig}={trans}");
-            sw.Close();
+            using (StreamWriter sw = new StreamWriter(translationFilePath, true, Encoding.UTF8))
+            {
+                await sw.WriteLineAsync($"{(isManual ? "*" : "")}{orig}={trans}");
+            }
+
             Translations.Add(new TransItem(orig, trans, isManual));
         }
 
@@ -120,11 +166,54 @@ namespace BooruDatasetTagManager
             return result;
         }
 
+        public async Task<List<string>> TranslateAsync(CancellationToken cancellationToken, IEnumerable<string> textList)
+        {
+            if (textList == null || textList.Count() == 0)
+            {
+                return new List<string>();
+            }
+
+            if (textList.Count() == 1)
+            {
+                return new List<string> { await TranslateAsync(textList.First()) };
+            }
+
+            List<string> resultList = await GetTranslationAsync(textList);
+            if (resultList != null && resultList.Count > 0)
+                return resultList;
+
+            var dic = await translator.TranslateAsync(cancellationToken, textList, "en", _language);
+
+            if (dic == null || dic.Count == 0)
+            {
+                return new List<string>();
+            }
+            resultList = new List<string>();
+            foreach (var text in textList)
+            {
+                string trans = string.Empty;
+                if (dic.TryGetValue(text, out trans))
+                {
+                    resultList.Add(trans);
+
+                    if (text != trans)
+                    {
+                        await AddTranslationAsync(text, trans, false);//add local cache
+                    }
+                }
+                else
+                {
+                    resultList.Add("");
+                }
+            }
+
+            return resultList;
+        }
 
         public class TransItem
         {
             public string Orig { get; private set; }
-            public string Trans {get; set; }
+            public string Trans { get; set; }
             public long OrigHash { get; private set; }
             public bool IsManual { get; private set; }
 

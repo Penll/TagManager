@@ -1,4 +1,6 @@
 ﻿
+using System.Windows.Forms;
+
 namespace BooruDatasetTagManager
 {
     partial class Form1
@@ -439,6 +441,7 @@ namespace BooruDatasetTagManager
             gridViewAllTags.Size = new System.Drawing.Size(368, 647);
             gridViewAllTags.TabIndex = 2;
             gridViewAllTags.CellDoubleClick += dataGridView2_CellDoubleClick;
+            gridViewAllTags.CellMouseClick += dataGridView2_CellMoucseClick;
             gridViewAllTags.SelectionChanged += gridViewAllTags_SelectionChanged;
             gridViewAllTags.Enter += gridView_Enter;
             gridViewAllTags.KeyPress += gridViewAllTags_KeyPress;
