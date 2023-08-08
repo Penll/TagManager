@@ -77,7 +77,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Translations\" />
-    <Folder Include="Translator\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">
