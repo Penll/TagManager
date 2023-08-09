@@ -104,11 +104,16 @@ namespace BooruDatasetTagManager
         private CancellationTokenSource cancellationTokenSource;
         private async Task FillTranslation(DataGridView grid)
         {
+
+            if (cancellationTokenSource != null)
+            {
+                cancellationTokenSource.Cancel();
+            }
+
             LockEdit(true);
             SetStatus("Translating, please wait...");
             try
             {
-
                 List<string> toTrans = new List<string>();
                 for (int n = 0; n < grid.RowCount; n++)
                 {
@@ -182,7 +187,7 @@ namespace BooruDatasetTagManager
             if (gridViewTags.SelectedRows.Count == 1)
                 gridViewTags.AllowDrop = !locked;
             gridViewAllTags.Enabled = !locked;
-            gridViewDS.Enabled = !locked;
+            //gridViewDS.Enabled = !locked;
         }
 
         private void ShowPreview(string img)
