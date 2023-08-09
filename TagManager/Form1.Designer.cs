@@ -386,6 +386,9 @@ namespace TagManager
             translateTagsToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
             translateTagsToolStripMenuItem.Text = Program.LangManager.GetString("translateTagsToolStripMenuItem.Text");
             translateTagsToolStripMenuItem.Click += translateTagsToolStripMenuItem_Click;
+            translateTagsToolStripMenuItem.Checked = true;
+            isTranslate = true;
+            AddTranslateColumnIfExist();
             // 
             // label1
             // 

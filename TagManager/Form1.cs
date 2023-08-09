@@ -105,7 +105,7 @@ namespace TagManager
         private async Task FillTranslation(DataGridView grid)
         {
 
-            if (cancellationTokenSource != null)
+            if (cancellationTokenSource != null && grid.Name == "gridViewTags")
             {
                 cancellationTokenSource.Cancel();
             }
@@ -851,6 +851,26 @@ namespace TagManager
             Program.DataManager.UpdateData();
         }
 
+
+        private void AddTranslateColumnIfExist()
+        {
+
+            if (!gridViewTags.Columns.Contains("Translation"))
+            {
+                //gridViewTags.Columns.Add("Translation", "Translation");
+                //gridViewTags.Columns["Translation"].ReadOnly = true;
+                //gridViewTags.Columns["Translation"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                gridViewTags.Columns.Insert(1, new DataGridViewTextBoxColumn()
+                {
+                    Name = "Translation",
+                    HeaderText = "Translation",
+                    ReadOnly = true,
+                    AutoSizeMode = gridViewTags.Columns.Contains("Image") ? DataGridViewAutoSizeColumnMode.AllCellsExceptHeader : DataGridViewAutoSizeColumnMode.Fill
+                });
+            }
+        }
+
+
         private async void translateTagsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             isTranslate = !isTranslate;
@@ -864,13 +884,7 @@ namespace TagManager
                 //    ReadOnly = true,
                 //    AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
                 //});
-                gridViewTags.Columns.Insert(1, new DataGridViewTextBoxColumn()
-                {
-                    Name = "Translation",
-                    HeaderText = "Translation",
-                    ReadOnly = true,
-                    AutoSizeMode = gridViewTags.Columns.Contains("Image") ? DataGridViewAutoSizeColumnMode.AllCellsExceptHeader : DataGridViewAutoSizeColumnMode.Fill
-                });
+                AddTranslateColumnIfExist();
                 //await FillTranslation(gridViewAllTags);
                 await FillTranslation(gridViewTags);
             }
@@ -1392,16 +1406,6 @@ namespace TagManager
             }
         }
 
-        private void AddTranslateColumnIfExist()
-        {
-
-            if (!gridViewTags.Columns.Contains("Translation"))
-            {
-                gridViewTags.Columns.Add("Translation", "Translation");
-                gridViewTags.Columns["Translation"].ReadOnly = true;
-                gridViewTags.Columns["Translation"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            }
-        }
 
         private void toolStripButton19_Click(object sender, EventArgs e)
         {
