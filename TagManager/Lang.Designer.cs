@@ -430,6 +430,15 @@ namespace TagManager {
         }
         
         /// <summary>
+        ///   查找类似 Language 的本地化字符串。
+        /// </summary>
+        internal static string setting_labelLang_Text {
+            get {
+                return ResourceManager.GetString("setting.labelLang.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 You must restart the application for the settings to take effect. 的本地化字符串。
         /// </summary>
         internal static string setting_save_msg {

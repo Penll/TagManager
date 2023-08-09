@@ -405,4 +405,7 @@
   <data name="tip.statusLabel.Translating" xml:space="preserve">
     <value>正在翻译...</value>
   </data>
+  <data name="setting.labelLang.Text" xml:space="preserve">
+    <value>语言</value>
+  </data>
 </root>

@@ -402,4 +402,7 @@
   <data name="tip.statusLabel.Translating" xml:space="preserve">
     <value>Translating...</value>
   </data>
+  <data name="setting.labelLang.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
 </root>

@@ -47,6 +47,7 @@ namespace TagManager
             checkBox4 = new System.Windows.Forms.CheckBox();
             checkBox2 = new System.Windows.Forms.CheckBox();
             comboBox4 = new System.Windows.Forms.ComboBox();
+            comboBoxLang = new System.Windows.Forms.ComboBox();
             label5 = new System.Windows.Forms.Label();
             comboBox3 = new System.Windows.Forms.ComboBox();
             label4 = new System.Windows.Forms.Label();
@@ -61,6 +62,7 @@ namespace TagManager
             button3 = new System.Windows.Forms.Button();
             label12 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
+            labelLang = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
             tabPage2 = new System.Windows.Forms.TabPage();
             checkBox1 = new System.Windows.Forms.CheckBox();
@@ -324,6 +326,8 @@ namespace TagManager
             tabPage3.Controls.Add(label12);
             tabPage3.Controls.Add(label13);
             tabPage3.Controls.Add(label10);
+            tabPage3.Controls.Add(labelLang);
+            tabPage3.Controls.Add(comboBoxLang);
             tabPage3.Location = new System.Drawing.Point(4, 24);
             tabPage3.Name = "tabPage3";
             tabPage3.Size = new System.Drawing.Size(445, 303);
@@ -393,6 +397,23 @@ namespace TagManager
             label13.Size = new System.Drawing.Size(108, 15);
             label13.TabIndex = 0;
             label13.Text = Program.LangManager.GetString("setting.label13.Text");
+
+
+            labelLang.AutoSize = true;
+            labelLang.Location = new System.Drawing.Point(9, 88);
+            labelLang.Name = "labelLang";
+            labelLang.Size = new System.Drawing.Size(108, 15);
+            labelLang.TabIndex = 0;
+            labelLang.Text = Program.LangManager.GetString("setting.labelLang.Text");
+
+            comboBoxLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            comboBoxLang.FormattingEnabled = true;
+            comboBoxLang.Location = new System.Drawing.Point(127, 88);
+            comboBoxLang.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            comboBoxLang.Name = "comboBoxLang";
+            comboBoxLang.Size = new System.Drawing.Size(302, 23);
+            comboBoxLang.TabIndex = 5;
+
             // 
             // label10
             // 
@@ -515,5 +536,7 @@ namespace TagManager
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label labelLang;
+        private System.Windows.Forms.ComboBox comboBoxLang;
     }
 }

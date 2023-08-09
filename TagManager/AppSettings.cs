@@ -12,11 +12,21 @@ namespace TagManager
     public class AppSettings
     {
         public string TranslationLanguage { get; set; } = "zh-CN";
-        public string AppLanguage { get; set; } = "zh-CN";//TODO:通过配置设置
+        public string AppLanguage
+        {
+            get
+            {
+                if (UILang == UILang.Chinese)
+                    return "zh-CN";
+                else
+                    return "en-US";
+            }
+        }
+        public UILang UILang { get; set; } = UILang.Chinese;
         public int PreviewSize { get; set; } = 160;
         [JsonIgnore]
         public List<LanguageItem> AvaibleLanguages;
-        public TranslationService TransService { get; set; } = TranslationService.CustomTranslate;
+        public TranslationService TransService { get; set; } = TranslationService.GoogleTranslate;
         public bool OnlyManualTransInAutocomplete { get; set; } = false;
         public AutocompleteMode AutocompleteMode { get; set; } = AutocompleteMode.StartWith;
         public AutocompleteSort AutocompleteSort { get; set; } = AutocompleteSort.Alphabetical;
@@ -52,6 +62,7 @@ namespace TagManager
             else
             {
                 var tempSettings = JsonConvert.DeserializeObject<AppSettings>(File.ReadAllText(settingsFile));
+                UILang = tempSettings.UILang;
                 TranslationLanguage = tempSettings.TranslationLanguage;
                 PreviewSize = tempSettings.PreviewSize;
                 TransService = tempSettings.TransService;
@@ -235,7 +246,7 @@ namespace TagManager
 
     public class FontSettings
     {
-        public string Name { get; set; }    = "Tahoma";
+        public string Name { get; set; } = "Tahoma";
         public float Size { get; set; } = 14;
         public bool Bold { get; set; } = false;
         public byte GdiCharSet { get; set; } = 1;
@@ -254,9 +265,9 @@ namespace TagManager
                 resStyle.Add(FontStyle.Bold);
             if (Italic)
                 resStyle.Add(FontStyle.Italic);
-            if(Strikeout)
+            if (Strikeout)
                 resStyle.Add(FontStyle.Strikeout);
-            if(Underline) 
+            if (Underline)
                 resStyle.Add(FontStyle.Underline);
             return new Font(Name, Size, resStyle.Aggregate((x, y) => x |= y), GraphicsUnit.Point, GdiCharSet, false);
         }

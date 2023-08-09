@@ -31,6 +31,8 @@ namespace TagManager
             comboBox3.SelectedItem = Program.Settings.AutocompleteMode.ToString();
             comboBox4.Items.AddRange(Enum.GetNames(typeof(AutocompleteSort)));
             comboBox4.SelectedItem = Program.Settings.AutocompleteSort.ToString();
+            comboBoxLang.Items.AddRange(Enum.GetNames(typeof(UILang)));
+            comboBoxLang.SelectedItem = Program.Settings.UILang.ToString();
             checkBox2.Checked = Program.Settings.FixTagsOnLoad;
             checkBox4.Checked = Program.Settings.FixTagsOnSave;
             textBox1.Text = Program.Settings.SeparatorOnLoad;
@@ -58,6 +60,9 @@ namespace TagManager
             Program.Settings.OnlyManualTransInAutocomplete = checkBox1.Checked;
             Program.Settings.AutocompleteMode = (AutocompleteMode)Enum.Parse(typeof(AutocompleteMode), comboBox3.SelectedItem.ToString(), true);
             Program.Settings.AutocompleteSort = (AutocompleteSort)Enum.Parse(typeof(AutocompleteSort), comboBox4.SelectedItem.ToString(), true);
+
+            Program.Settings.UILang = (UILang)Enum.Parse(typeof(UILang), comboBoxLang.SelectedItem.ToString(), true);
+
             Program.Settings.FixTagsOnLoad = checkBox2.Checked;
             Program.Settings.FixTagsOnSave = checkBox4.Checked;
             Program.Settings.SeparatorOnLoad = textBox1.Text;

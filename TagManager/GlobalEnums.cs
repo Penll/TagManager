@@ -35,4 +35,11 @@ namespace TagManager
         Not,
         Xor
     }
+
+
+    public enum UILang
+    {
+        English,
+        Chinese
+    }
 }
