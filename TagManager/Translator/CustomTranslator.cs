@@ -64,7 +64,7 @@ namespace TagManager
                 return new Dictionary<string, string>();
             }
 
-            string url = $"http://aitool.mm.babybus.com/Transalte/Index?content={HttpUtility.UrlEncode(Newtonsoft.Json.JsonConvert.SerializeObject(resultList))}&translateType={HttpUtility.UrlEncode(toLang)}";
+            string url = $"http://{"TODO:url"}?content={HttpUtility.UrlEncode(Newtonsoft.Json.JsonConvert.SerializeObject(resultList))}&translateType={HttpUtility.UrlEncode(toLang)}";
 
             var client = new HttpClient();
             client.Timeout = TimeSpan.FromSeconds(10);
