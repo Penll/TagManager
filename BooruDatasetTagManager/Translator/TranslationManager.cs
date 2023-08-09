@@ -196,7 +196,7 @@ namespace BooruDatasetTagManager
                 {
                     resultList.Add(trans);
 
-                    if (text != trans)
+                    if (text != trans && Translations.FirstOrDefault(o => o.Orig == text) == null)
                     {
                         await AddTranslationAsync(text, trans, false);//add local cache
                     }
