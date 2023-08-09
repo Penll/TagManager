@@ -154,14 +154,21 @@ namespace TagManager
             Translations.Add(new TransItem(orig, trans, isManual));
         }
 
-        public async Task<string> TranslateAsync(string text)
+        public async Task<string> TranslateAsync(string text, bool isBackwardsTranslate = false)
         {
             if (string.IsNullOrWhiteSpace(text))
                 return string.Empty;
             string result = await GetTranslationAsync(text);
             if (result != null)
                 return result;
-            result = await translator.TranslateAsync(text, "en", _language);
+            if (isBackwardsTranslate)
+            {
+                result = await translator.TranslateAsync(text, _language, "en");
+            }
+            else
+            {
+                result = await translator.TranslateAsync(text, "en", _language);
+            }
             await AddTranslationAsync(text, result, false);
             return result;
         }

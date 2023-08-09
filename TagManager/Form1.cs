@@ -155,7 +155,7 @@ namespace TagManager
                     {
                         for (int j = 0; j < textList.Count; j++)
                         {
-                            grid["Translation", j + i].ReadOnly = true;
+                            //grid["Translation", j + i].ReadOnly = true;
                             grid["Translation", j + i].Value = textList[j];
                         }
 
@@ -217,7 +217,7 @@ namespace TagManager
                 if (gridViewTags.Columns.Contains("Translation"))
                 {
                     gridViewTags.Columns["Translation"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    gridViewTags.Columns["Translation"].ReadOnly = true;
+                    //gridViewTags.Columns["Translation"].ReadOnly = true;
                 }
                 foreach (var item in tags)
                     gridViewTags.Rows.Add(item);
@@ -239,7 +239,7 @@ namespace TagManager
                 if (gridViewTags.Columns.Contains("Translation"))
                 {
                     gridViewTags.Columns["Translation"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    gridViewTags.Columns["Translation"].ReadOnly = true;
+                    //gridViewTags.Columns["Translation"].ReadOnly = true;
                 }
                 gridViewTags.Tag = "0";
                 Dictionary<string, List<DataItem>> table = new Dictionary<string, List<DataItem>>();
@@ -864,7 +864,7 @@ namespace TagManager
                 {
                     Name = "Translation",
                     HeaderText = "Translation",
-                    ReadOnly = true,
+                    //ReadOnly = true,
                     AutoSizeMode = gridViewTags.Columns.Contains("Image") ? DataGridViewAutoSizeColumnMode.AllCellsExceptHeader : DataGridViewAutoSizeColumnMode.Fill
                 });
             }
@@ -1356,6 +1356,29 @@ namespace TagManager
                     }
                 }
             }
+            else if (gridViewDS.SelectedRows.Count == 1)
+            {
+
+                string editedValue = (string)gridViewTags[e.ColumnIndex, e.RowIndex].Value;
+                bool del = false;
+                for (int i = 0; i < gridViewTags.RowCount; i++)
+                {
+                    if (i != e.RowIndex && (string)gridViewTags[e.ColumnIndex, i].Value == editedValue)
+                    {
+                        del = true;
+                        break;
+                    }
+                }
+                if (!del)
+                {
+                    var rowIdx = e.RowIndex;
+                    var columnIdx = e.ColumnIndex;
+                    this.BeginInvoke(new MethodInvoker(() =>
+                    {
+                        AfterEdit(columnIdx, rowIdx);
+                    }));
+                }
+            }
         }
 
 
@@ -1375,10 +1398,12 @@ namespace TagManager
                 return;
             }
 
+            bool isBackwardsTrans = false;
             int targetColumnIndex = 1;
             if (editCell.OwningColumn.Name == "Translation")
             {
                 targetColumnIndex = 0;
+                isBackwardsTrans = true;
             }
 
             LockEdit(locked: true);
@@ -1394,7 +1419,7 @@ namespace TagManager
 
                 gridViewTags[targetColumnIndex, currentRowIndex].Value = "...";
 
-                string text = await Program.TransManager.TranslateAsync(currentCellValue);
+                string text = await Program.TransManager.TranslateAsync(currentCellValue, isBackwardsTrans);
 
                 if (!string.IsNullOrWhiteSpace(text))
                 {
