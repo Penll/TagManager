@@ -142,7 +142,7 @@
     <value>设置...</value>
   </data>
   <data name="showPreviewToolStripMenuItem.Text" xml:space="preserve">
-    <value>显示预览</value>
+    <value>单击直接预览（未勾选则双击）</value>
   </data>
   <data name="toolStripButton1.Text" xml:space="preserve">
     <value>应用</value>
@@ -342,22 +342,67 @@
   <data name="setting.form.Title" xml:space="preserve">
     <value>设置</value>
   </data>
-  <data name="startUpLoadingMsg" xml:space="preserve">
+  <data name="tip.startUpLoadingMsg" xml:space="preserve">
     <value>正在加载标签，请稍候。\n更改 csv 或 txt 文件时，\n标签的初始加载可能需要很长时间。</value>
   </data>
-  <data name="statusLabelImagesOrTagsNotSelected" xml:space="preserve">
+  <data name="tip.statusLabelImagesOrTagsNotSelected" xml:space="preserve">
     <value>请选择图像或标签！</value>
   </data>
-  <data name="statusLabelSettingsHaveBeenSaved" xml:space="preserve">
+  <data name="tip.statusLabelSettingsHaveBeenSaved" xml:space="preserve">
     <value>设置已保存</value>
   </data>
-  <data name="statusLabelTheNumberOfSelectedImagesIsNotEqualTo1" xml:space="preserve">
+  <data name="tip.statusLabelTheNumberOfSelectedImagesIsNotEqualTo1" xml:space="preserve">
     <value>所选图像数量不等于1</value>
   </data>
-  <data name="statusLabelTheNumberOfSelectedImagesMustBeGreaterThan0" xml:space="preserve">
+  <data name="tip.statusLabelTheNumberOfSelectedImagesMustBeGreaterThan0" xml:space="preserve">
     <value>所选图像数量必须大于0</value>
   </data>
-  <data name="statusLabelTheNumberOfSelectedImagesMustBeGreaterThan1" xml:space="preserve">
+  <data name="tip.statusLabelTheNumberOfSelectedImagesMustBeGreaterThan1" xml:space="preserve">
     <value>所选图像数量必须大于1</value>
+  </data>
+  <data name="tip.dataset.not.load" xml:space="preserve">
+    <value>图像列表未加载</value>
+  </data>
+  <data name="doesNotSupportMultipleSelection" xml:space="preserve">
+    <value>当前操作不支持多选</value>
+  </data>
+  <data name="setting.save.msg" xml:space="preserve">
+    <value>您必须重新启动应用程序才能使设置生效。</value>
+  </data>
+  <data name="tip.askDelete" xml:space="preserve">
+    <value>您确定要删除选定的图像吗？</value>
+  </data>
+  <data name="tip.askDelete.Title" xml:space="preserve">
+    <value>删除文件</value>
+  </data>
+  <data name="tip.atLeastOneImage" xml:space="preserve">
+    <value>请至少选择一张图</value>
+  </data>
+  <data name="tip.doesNotSupportMultipleSelection" xml:space="preserve">
+    <value>当前操作不支持多选。</value>
+  </data>
+  <data name="tip.imageMustBeFilled" xml:space="preserve">
+    <value>图像必须已填充！</value>
+  </data>
+  <data name="tip.requestTimeOut" xml:space="preserve">
+    <value>翻译超时</value>
+  </data>
+  <data name="tip.saveDataSetChange" xml:space="preserve">
+    <value>数据已更改，\n您要保存更改吗?</value>
+  </data>
+  <data name="tip.saveDataSetChange.Title" xml:space="preserve">
+    <value>保存更改</value>
+  </data>
+  <data name="tip.SetTagListToEmptyImagesOnly" xml:space="preserve">
+    <value>将标签列表设置为仅空图像？\n是 - 仅空图像，否 - 所有图像，取消 - 不执行任何操作。</value>
+  </data>
+  <data name="tip.SetTagListToEmptyImagesOnly.Title" xml:space="preserve">
+    <value>标签设置选项</value>
+  </data>
+  <data name="tip.statusLabel.Translated" xml:space="preserve">
+    <value>翻译结束</value>
+  </data>
+  <data name="tip.statusLabel.Translating" xml:space="preserve">
+    <value>正在翻译...</value>
   </data>
 </root>

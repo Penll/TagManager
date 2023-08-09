@@ -342,22 +342,64 @@
   <data name="setting.form.Title" xml:space="preserve">
     <value>Settings</value>
   </data>
-  <data name="startUpLoadingMsg" xml:space="preserve">
+  <data name="tip.startUpLoadingMsg" xml:space="preserve">
     <value>Please wait while the tags are loading.\nWhen changing csv or txt files,\nthe initial loading of tags may take a long time.</value>
   </data>
-  <data name="statusLabelImagesOrTagsNotSelected" xml:space="preserve">
+  <data name="tip.statusLabelImagesOrTagsNotSelected" xml:space="preserve">
     <value>Images or tags not selected!</value>
   </data>
-  <data name="statusLabelSettingsHaveBeenSaved" xml:space="preserve">
+  <data name="tip.statusLabelSettingsHaveBeenSaved" xml:space="preserve">
     <value>Settings have been saved</value>
   </data>
-  <data name="statusLabelTheNumberOfSelectedImagesIsNotEqualTo1" xml:space="preserve">
+  <data name="tip.statusLabelTheNumberOfSelectedImagesIsNotEqualTo1" xml:space="preserve">
     <value>The number of selected images is not equal to 1</value>
   </data>
-  <data name="statusLabelTheNumberOfSelectedImagesMustBeGreaterThan0" xml:space="preserve">
+  <data name="tip.statusLabelTheNumberOfSelectedImagesMustBeGreaterThan0" xml:space="preserve">
     <value>The number of selected images must be greater than 0</value>
   </data>
-  <data name="statusLabelTheNumberOfSelectedImagesMustBeGreaterThan1" xml:space="preserve">
+  <data name="tip.statusLabelTheNumberOfSelectedImagesMustBeGreaterThan1" xml:space="preserve">
     <value>The number of selected images must be greater than 1</value>
+  </data>
+  <data name="setting.save.msg" xml:space="preserve">
+    <value>You must restart the application for the settings to take effect.</value>
+  </data>
+  <data name="tip.atLeastOneImage" xml:space="preserve">
+    <value>Select at least one image</value>
+  </data>
+  <data name="tip.dataset.not.load" xml:space="preserve">
+    <value>Dataset not load</value>
+  </data>
+  <data name="tip.doesNotSupportMultipleSelection" xml:space="preserve">
+    <value>Current operate does not support multiple selection. </value>
+  </data>
+  <data name="tip.askDelete" xml:space="preserve">
+    <value>Are you sure you want to delete the selected image file?</value>
+  </data>
+  <data name="tip.askDelete.Title" xml:space="preserve">
+    <value>Delete File</value>
+  </data>
+  <data name="tip.imageMustBeFilled" xml:space="preserve">
+    <value>Image name must be filled!</value>
+  </data>
+  <data name="tip.requestTimeOut" xml:space="preserve">
+    <value>Translate request timeout</value>
+  </data>
+  <data name="tip.saveDataSetChange" xml:space="preserve">
+    <value>The dataset has been changed,\ndo you want to save the changes?</value>
+  </data>
+  <data name="tip.saveDataSetChange.Title" xml:space="preserve">
+    <value>Saving changes</value>
+  </data>
+  <data name="tip.SetTagListToEmptyImagesOnly" xml:space="preserve">
+    <value>Set tag list to empty images only?\nYes - only empty, No - to all images, Cancel - do nothing.</value>
+  </data>
+  <data name="tip.SetTagListToEmptyImagesOnly.Title" xml:space="preserve">
+    <value>Tag setting option</value>
+  </data>
+  <data name="tip.statusLabel.Translated" xml:space="preserve">
+    <value>Translate finished</value>
+  </data>
+  <data name="tip.statusLabel.Translating" xml:space="preserve">
+    <value>Translating...</value>
   </data>
 </root>

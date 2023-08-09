@@ -50,7 +50,7 @@ namespace BooruDatasetTagManager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("You must restart the application for the settings to take effect.");
+            MessageBox.Show(Program.LangManager.GetString("setting.save.msg"));
             Program.Settings.PreviewSize = (int)numericUpDown1.Value;
             Program.Settings.ShowAutocompleteAfterCharCount = (int)numericUpDown2.Value;
             Program.Settings.TranslationLanguage = (string)comboBox1.SelectedValue;

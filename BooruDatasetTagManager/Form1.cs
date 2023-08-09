@@ -480,7 +480,7 @@ namespace BooruDatasetTagManager
         {
             if (Program.DataManager == null)
             {
-                MessageBox.Show("Dataset not load.");
+                MessageBox.Show(Program.LangManager.GetString("tip.dataset.not.load"));
                 return;
             }
             if ((string)gridViewTags.Tag != "0")
@@ -536,7 +536,7 @@ namespace BooruDatasetTagManager
         {
             if (Program.DataManager == null)
             {
-                MessageBox.Show("Dataset not load.");
+                MessageBox.Show(Program.LangManager.GetString("tip.dataset.not.load"));
                 return;
             }
             if (isAllTags)
@@ -589,7 +589,7 @@ namespace BooruDatasetTagManager
         {
             if (Program.DataManager == null)
             {
-                MessageBox.Show("Dataset not load.");
+                MessageBox.Show(Program.LangManager.GetString("tip.dataset.not.load"));
                 return;
             }
             Form_addTag addTag = new Form_addTag();
@@ -694,7 +694,7 @@ namespace BooruDatasetTagManager
         {
             if (gridViewDS.SelectedRows.Count != 1)
             {
-                MessageBox.Show("Replace does not support multiple selection. Choose one image.");
+                MessageBox.Show(Program.LangManager.GetString("tip.doesNotSupportMultipleSelection"));
                 return;
             }
 
@@ -734,7 +734,7 @@ namespace BooruDatasetTagManager
         {
             if (Program.DataManager == null)
             {
-                MessageBox.Show("Dataset not load.");
+                MessageBox.Show(Program.LangManager.GetString("tip.dataset.not.load"));
                 return;
             }
             ApplyTagsChanges();
@@ -747,7 +747,7 @@ namespace BooruDatasetTagManager
         {
             if (Program.DataManager == null)
             {
-                MessageBox.Show("Dataset not load.");
+                MessageBox.Show(Program.LangManager.GetString("tip.dataset.not.load"));
                 return;
             }
             isShowPreview = !isShowPreview;
@@ -782,11 +782,11 @@ namespace BooruDatasetTagManager
             }
             else if (gridViewDS.SelectedRows.Count > 1)
             {
-                MessageBox.Show("Copying is only supported for single selection");
+                MessageBox.Show(Program.LangManager.GetString("tip.doesNotSupportMultipleSelection"));
             }
             else
             {
-                MessageBox.Show("First select an image");
+                MessageBox.Show(Program.LangManager.GetString("tip.atLeastOneImage"));
             }
         }
 
@@ -810,11 +810,11 @@ namespace BooruDatasetTagManager
             }
             else if (gridViewDS.SelectedRows.Count > 1)
             {
-                MessageBox.Show("Pasting is only supported for single selection");
+                MessageBox.Show(Program.LangManager.GetString("tip.doesNotSupportMultipleSelection"));
             }
             else
             {
-                MessageBox.Show("First select an image");
+                MessageBox.Show(Program.LangManager.GetString("tip.atLeastOneImage"));
             }
         }
 
@@ -1051,7 +1051,7 @@ namespace BooruDatasetTagManager
         {
             if (gridViewDS.SelectedRows.Count != 1)
             {
-                MessageBox.Show("Select one image!");
+                MessageBox.Show(Program.LangManager.GetString("tip.atLeastOneImage"));
                 return;
             }
             List<string> tags = new List<string>();
@@ -1059,7 +1059,7 @@ namespace BooruDatasetTagManager
             {
                 tags.Add((string)gridViewTags["ImageTags", i].Value);
             }
-            switch (MessageBox.Show("Set tag list to empty images only?\nYes - only empty, No - to all images, Cancel - do nothing.", "Tag setting option", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question))
+            switch (MessageBox.Show(Program.LangManager.GetString("tip.SetTagListToEmptyImagesOnly"), Program.LangManager.GetString("tip.SetTagListToEmptyImagesOnly.Title"), MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question))
             {
                 case DialogResult.Yes:
                     Program.DataManager.SetTagListToAll(tags, true);
@@ -1078,7 +1078,7 @@ namespace BooruDatasetTagManager
         {
             if (Program.DataManager != null && Program.DataManager.IsDataSetChanged())
             {
-                DialogResult result = MessageBox.Show("The dataset has been changed,\ndo you want to save the changes?", "Saving changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show(Program.LangManager.GetString("tip.saveDataSetChange"), Program.LangManager.GetString("tip.saveDataSetChange.Title"), MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     Program.DataManager.SaveAll(Program.Settings.FixTagsOnSave);
@@ -1186,7 +1186,7 @@ namespace BooruDatasetTagManager
                     {
                         if (Program.Settings.AskSaveChanges)
                         {
-                            if (MessageBox.Show("The list of tags has been changed. Save changes?", "Saving changes",
+                            if (MessageBox.Show("Tag " + Program.LangManager.GetString("tip.saveDataSetChange"), Program.LangManager.GetString("tip.saveDataSetChange.Title"),
                                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                             {
                                 ApplyTagsChanges();
@@ -1329,7 +1329,7 @@ namespace BooruDatasetTagManager
                 {
                     if (string.IsNullOrEmpty((string)gridViewTags["Image", e.RowIndex].Value))
                     {
-                        MessageBox.Show("Image name must be filled!");
+                        MessageBox.Show(Program.LangManager.GetString("tip.imageMustBeFilled"));
                         this.BeginInvoke(new MethodInvoker(() =>
                         {
                             gridViewTags.Rows.RemoveAt(e.RowIndex);
@@ -1368,7 +1368,7 @@ namespace BooruDatasetTagManager
             }
 
             LockEdit(locked: true);
-            SetStatus("Translating...");
+            SetStatus(Program.LangManager.GetString("tip.statusLabel.Translating"));
 
 
             int currentRowIndex = rowid;
@@ -1378,7 +1378,7 @@ namespace BooruDatasetTagManager
                 AddTranslateColumnIfExist();
 
 
-                gridViewTags[targetColumnIndex, currentRowIndex].Value = "开始翻译...";
+                gridViewTags[targetColumnIndex, currentRowIndex].Value = "...";
 
                 string text = await Program.TransManager.TranslateAsync(currentCellValue);
 
@@ -1387,7 +1387,7 @@ namespace BooruDatasetTagManager
                     gridViewTags[targetColumnIndex, currentRowIndex].Value = text;
                 }
 
-                SetStatus("翻译结束");
+                SetStatus(Program.LangManager.GetString("tip.statusLabel.Translated"));
                 LockEdit(locked: false);
             }
         }
@@ -1412,7 +1412,7 @@ namespace BooruDatasetTagManager
         {
             if (gridViewDS.SelectedRows.Count != 1)
             {
-                statusLabel.Text = Program.LangManager.GetString("statusLabelTheNumberOfSelectedImagesIsNotEqualTo1");
+                statusLabel.Text = Program.LangManager.GetString("tip.statusLabelTheNumberOfSelectedImagesIsNotEqualTo1");
                 return;
             }
 
@@ -1430,7 +1430,7 @@ namespace BooruDatasetTagManager
         {
             if (gridViewDS.SelectedRows.Count < 2)
             {
-                statusLabel.Text = Program.LangManager.GetString("statusLabelTheNumberOfSelectedImagesMustBeGreaterThan1");
+                statusLabel.Text = Program.LangManager.GetString("tip.statusLabelTheNumberOfSelectedImagesMustBeGreaterThan1");
                 return;
             }
             //List<string> selectedImages = new List<string>();
@@ -1502,7 +1502,7 @@ namespace BooruDatasetTagManager
         {
             if (gridViewDS.SelectedRows.Count == 0)
             {
-                statusLabel.Text = Program.LangManager.GetString("statusLabelTheNumberOfSelectedImagesMustBeGreaterThan0");
+                statusLabel.Text = Program.LangManager.GetString("tip.statusLabelTheNumberOfSelectedImagesMustBeGreaterThan0");
                 return;
             }
 
@@ -1544,7 +1544,7 @@ namespace BooruDatasetTagManager
         {
             if (gridViewAllTags.SelectedCells.Count == 0 || gridViewDS.SelectedRows.Count == 0)
             {
-                statusLabel.Text = Program.LangManager.GetString("statusLabelImagesOrTagsNotSelected");
+                statusLabel.Text = Program.LangManager.GetString("tip.statusLabelImagesOrTagsNotSelected");
                 return;
             }
             foreach (var item in GetSelectedTagsInAllTags())
@@ -1562,7 +1562,7 @@ namespace BooruDatasetTagManager
         {
             if (gridViewAllTags.SelectedCells.Count == 0 || gridViewDS.SelectedRows.Count == 0)
             {
-                statusLabel.Text = Program.LangManager.GetString("statusLabelImagesOrTagsNotSelected");
+                statusLabel.Text = Program.LangManager.GetString("tip.statusLabelImagesOrTagsNotSelected");
                 return;
             }
             foreach (var item in GetSelectedTagsInAllTags())
@@ -1631,7 +1631,7 @@ namespace BooruDatasetTagManager
             Form_settings settings = new Form_settings();
             if (settings.ShowDialog() == DialogResult.OK)
             {
-                statusLabel.Text = Program.LangManager.GetString("statusLabelSettingsHaveBeenSaved");
+                statusLabel.Text = Program.LangManager.GetString("tip.statusLabelSettingsHaveBeenSaved");
             }
             settings.Close();
         }
@@ -1657,7 +1657,7 @@ namespace BooruDatasetTagManager
         {
             if (gridViewDS.SelectedRows.Count < 1)
                 return;
-            if (MessageBox.Show("Are you sure you want to delete the selected image file?", "Delete File",
+            if (MessageBox.Show(Program.LangManager.GetString("tip.askDelete"), Program.LangManager.GetString("tip.askDelete.Title"),
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 gridViewTags.Rows.Clear();
@@ -1883,7 +1883,7 @@ namespace BooruDatasetTagManager
         {
             if (Program.DataManager == null)
             {
-                MessageBox.Show("Dataset not load.");
+                MessageBox.Show(Program.LangManager.GetString("tip.dataset.not.load"));
                 return;
             }
             if (allTagsFilter == null || allTagsFilter.IsDisposed)

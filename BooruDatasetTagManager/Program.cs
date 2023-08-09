@@ -33,7 +33,7 @@ namespace BooruDatasetTagManager
             f_wait.ControlBox = false;
             f_wait.StartPosition = FormStartPosition.CenterScreen;
             Label mes = new Label();
-            mes.Text = LangManager.GetString("startUpLoadingMsg"); ;
+            mes.Text = LangManager.GetString("tip.startUpLoadingMsg"); ;
             mes.Location = new System.Drawing.Point(10, 10);
             mes.AutoSize = true;
 

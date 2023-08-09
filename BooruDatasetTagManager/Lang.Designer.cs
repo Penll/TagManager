@@ -430,6 +430,15 @@ namespace BooruDatasetTagManager {
         }
         
         /// <summary>
+        ///   查找类似 You must restart the application for the settings to take effect. 的本地化字符串。
+        /// </summary>
+        internal static string setting_save_msg {
+            get {
+                return ResourceManager.GetString("setting.save.msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 General 的本地化字符串。
         /// </summary>
         internal static string setting_tabPage1_Text {
@@ -475,56 +484,173 @@ namespace BooruDatasetTagManager {
         }
         
         /// <summary>
+        ///   查找类似 Are you sure you want to delete the selected image file? 的本地化字符串。
+        /// </summary>
+        internal static string tip_askDelete {
+            get {
+                return ResourceManager.GetString("tip.askDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Delete File 的本地化字符串。
+        /// </summary>
+        internal static string tip_askDelete_Title {
+            get {
+                return ResourceManager.GetString("tip.askDelete.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Select at least one image 的本地化字符串。
+        /// </summary>
+        internal static string tip_atLeastOneImage {
+            get {
+                return ResourceManager.GetString("tip.atLeastOneImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Dataset not load 的本地化字符串。
+        /// </summary>
+        internal static string tip_dataset_not_load {
+            get {
+                return ResourceManager.GetString("tip.dataset.not.load", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Current operate does not support multiple selection.  的本地化字符串。
+        /// </summary>
+        internal static string tip_doesNotSupportMultipleSelection {
+            get {
+                return ResourceManager.GetString("tip.doesNotSupportMultipleSelection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Image name must be filled! 的本地化字符串。
+        /// </summary>
+        internal static string tip_imageMustBeFilled {
+            get {
+                return ResourceManager.GetString("tip.imageMustBeFilled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Translate request timeout 的本地化字符串。
+        /// </summary>
+        internal static string tip_requestTimeOut {
+            get {
+                return ResourceManager.GetString("tip.requestTimeOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 The dataset has been changed,\ndo you want to save the changes? 的本地化字符串。
+        /// </summary>
+        internal static string tip_saveDataSetChange {
+            get {
+                return ResourceManager.GetString("tip.saveDataSetChange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Saving changes 的本地化字符串。
+        /// </summary>
+        internal static string tip_saveDataSetChange_Title {
+            get {
+                return ResourceManager.GetString("tip.saveDataSetChange.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Set tag list to empty images only?\nYes - only empty, No - to all images, Cancel - do nothing. 的本地化字符串。
+        /// </summary>
+        internal static string tip_SetTagListToEmptyImagesOnly {
+            get {
+                return ResourceManager.GetString("tip.SetTagListToEmptyImagesOnly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Tag setting option 的本地化字符串。
+        /// </summary>
+        internal static string tip_SetTagListToEmptyImagesOnly_Title {
+            get {
+                return ResourceManager.GetString("tip.SetTagListToEmptyImagesOnly.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Please wait while the tags are loading.\nWhen changing csv or txt files,\nthe initial loading of tags may take a long time. 的本地化字符串。
         /// </summary>
-        internal static string startUpLoadingMsg {
+        internal static string tip_startUpLoadingMsg {
             get {
-                return ResourceManager.GetString("startUpLoadingMsg", resourceCulture);
+                return ResourceManager.GetString("tip.startUpLoadingMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Translate finished 的本地化字符串。
+        /// </summary>
+        internal static string tip_statusLabel_Translated {
+            get {
+                return ResourceManager.GetString("tip.statusLabel.Translated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Translating... 的本地化字符串。
+        /// </summary>
+        internal static string tip_statusLabel_Translating {
+            get {
+                return ResourceManager.GetString("tip.statusLabel.Translating", resourceCulture);
             }
         }
         
         /// <summary>
         ///   查找类似 Images or tags not selected! 的本地化字符串。
         /// </summary>
-        internal static string statusLabelImagesOrTagsNotSelected {
+        internal static string tip_statusLabelImagesOrTagsNotSelected {
             get {
-                return ResourceManager.GetString("statusLabelImagesOrTagsNotSelected", resourceCulture);
+                return ResourceManager.GetString("tip.statusLabelImagesOrTagsNotSelected", resourceCulture);
             }
         }
         
         /// <summary>
         ///   查找类似 Settings have been saved 的本地化字符串。
         /// </summary>
-        internal static string statusLabelSettingsHaveBeenSaved {
+        internal static string tip_statusLabelSettingsHaveBeenSaved {
             get {
-                return ResourceManager.GetString("statusLabelSettingsHaveBeenSaved", resourceCulture);
+                return ResourceManager.GetString("tip.statusLabelSettingsHaveBeenSaved", resourceCulture);
             }
         }
         
         /// <summary>
         ///   查找类似 The number of selected images is not equal to 1 的本地化字符串。
         /// </summary>
-        internal static string statusLabelTheNumberOfSelectedImagesIsNotEqualTo1 {
+        internal static string tip_statusLabelTheNumberOfSelectedImagesIsNotEqualTo1 {
             get {
-                return ResourceManager.GetString("statusLabelTheNumberOfSelectedImagesIsNotEqualTo1", resourceCulture);
+                return ResourceManager.GetString("tip.statusLabelTheNumberOfSelectedImagesIsNotEqualTo1", resourceCulture);
             }
         }
         
         /// <summary>
         ///   查找类似 The number of selected images must be greater than 0 的本地化字符串。
         /// </summary>
-        internal static string statusLabelTheNumberOfSelectedImagesMustBeGreaterThan0 {
+        internal static string tip_statusLabelTheNumberOfSelectedImagesMustBeGreaterThan0 {
             get {
-                return ResourceManager.GetString("statusLabelTheNumberOfSelectedImagesMustBeGreaterThan0", resourceCulture);
+                return ResourceManager.GetString("tip.statusLabelTheNumberOfSelectedImagesMustBeGreaterThan0", resourceCulture);
             }
         }
         
         /// <summary>
         ///   查找类似 The number of selected images must be greater than 1 的本地化字符串。
         /// </summary>
-        internal static string statusLabelTheNumberOfSelectedImagesMustBeGreaterThan1 {
+        internal static string tip_statusLabelTheNumberOfSelectedImagesMustBeGreaterThan1 {
             get {
-                return ResourceManager.GetString("statusLabelTheNumberOfSelectedImagesMustBeGreaterThan1", resourceCulture);
+                return ResourceManager.GetString("tip.statusLabelTheNumberOfSelectedImagesMustBeGreaterThan1", resourceCulture);
             }
         }
         
