@@ -46,7 +46,7 @@ namespace BooruDatasetTagManager
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(25, 15);
             label1.TabIndex = 0;
-            label1.Text = "Tag";
+            label1.Text = Program.LangManager.GetString("addtag.label1.Text");
             // 
             // button1
             // 
@@ -56,7 +56,7 @@ namespace BooruDatasetTagManager
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(88, 27);
             button1.TabIndex = 2;
-            button1.Text = "OK";
+            button1.Text = Program.LangManager.GetString("ok.button.Text");
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
@@ -69,7 +69,7 @@ namespace BooruDatasetTagManager
             button2.Name = "button2";
             button2.Size = new System.Drawing.Size(88, 27);
             button2.TabIndex = 3;
-            button2.Text = "Cancel";
+            button2.Text = Program.LangManager.GetString("cancel.button.Text");
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
@@ -81,7 +81,7 @@ namespace BooruDatasetTagManager
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(92, 15);
             label2.TabIndex = 4;
-            label2.Text = "Adding position";
+            label2.Text = Program.LangManager.GetString("addtag.label2.Text");
             // 
             // comboBox1
             // 
@@ -117,7 +117,7 @@ namespace BooruDatasetTagManager
             Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             Name = "Form_addTag";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "Add tag";
+            Text = Program.LangManager.GetString("addtag.form.Title");
             Load += Form_addTag_Load;
             Shown += Form_addTag_Shown;
             MouseClick += Form_addTag_MouseClick;

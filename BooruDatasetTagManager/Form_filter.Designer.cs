@@ -41,7 +41,8 @@
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(56, 15);
             label1.TabIndex = 0;
-            label1.Text = "Filter text";
+            label1.Text = Program.LangManager.GetString("filter.label1.Text");
+
             // 
             // textBox1
             // 
@@ -56,7 +57,7 @@
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(75, 23);
             button1.TabIndex = 2;
-            button1.Text = "OK";
+            label1.Text = Program.LangManager.GetString("ok.button.Text");
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
@@ -66,7 +67,7 @@
             button2.Name = "button2";
             button2.Size = new System.Drawing.Size(75, 23);
             button2.TabIndex = 3;
-            button2.Text = "Cancel";
+            button2.Text = Program.LangManager.GetString("cancel.button.Text");
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
@@ -83,7 +84,7 @@
             Controls.Add(label1);
             Name = "Form_filter";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "All tags filter";
+            Text = Program.LangManager.GetString("filter.form.Title"); 
             ResumeLayout(false);
             PerformLayout();
         }

@@ -45,7 +45,7 @@ namespace BooruDatasetTagManager
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(63, 15);
             label1.TabIndex = 0;
-            label1.Text = "Source tag";
+            label1.Text = Program.LangManager.GetString("replace.label1.Text");
             // 
             // comboBox1
             // 
@@ -66,7 +66,7 @@ namespace BooruDatasetTagManager
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(51, 15);
             label2.TabIndex = 2;
-            label2.Text = "New tag";
+            label2.Text = Program.LangManager.GetString("replace.label2.Text");
             // 
             // comboBox2
             // 
@@ -85,7 +85,7 @@ namespace BooruDatasetTagManager
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(88, 27);
             button1.TabIndex = 4;
-            button1.Text = "OK";
+            button1.Text = Program.LangManager.GetString("ok.button.Text");
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
@@ -97,7 +97,7 @@ namespace BooruDatasetTagManager
             button2.Name = "button2";
             button2.Size = new System.Drawing.Size(88, 27);
             button2.TabIndex = 5;
-            button2.Text = "Cancel";
+            button2.Text = Program.LangManager.GetString("cancel.button.Text");
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
@@ -117,7 +117,7 @@ namespace BooruDatasetTagManager
             Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             Name = "Form_replaceAll";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "Replace all";
+            Text = Program.LangManager.GetString("addtag.form.Title");
             ResumeLayout(false);
             PerformLayout();
         }

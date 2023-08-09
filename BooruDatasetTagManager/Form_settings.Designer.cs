@@ -1,4 +1,6 @@
 ﻿
+using System.Windows.Forms;
+
 namespace BooruDatasetTagManager
 {
     partial class Form_settings
@@ -81,7 +83,7 @@ namespace BooruDatasetTagManager
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(116, 15);
             label1.TabIndex = 0;
-            label1.Text = "Translation language";
+            label1.Text = Program.LangManager.GetString("setting.label1.Text");
             // 
             // comboBox1
             // 
@@ -101,7 +103,7 @@ namespace BooruDatasetTagManager
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(106, 15);
             label2.TabIndex = 2;
-            label2.Text = "Preview image size";
+            label2.Text = Program.LangManager.GetString("setting.label2.Text");
             // 
             // numericUpDown1
             // 
@@ -122,7 +124,7 @@ namespace BooruDatasetTagManager
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(88, 27);
             button1.TabIndex = 4;
-            button1.Text = "Save";
+            button1.Text = Program.LangManager.GetString("setting.button1.Text");
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
@@ -135,7 +137,7 @@ namespace BooruDatasetTagManager
             button2.Name = "button2";
             button2.Size = new System.Drawing.Size(88, 27);
             button2.TabIndex = 4;
-            button2.Text = "Cancel";
+            button2.Text = Program.LangManager.GetString("setting.button2.Text");
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
@@ -176,7 +178,7 @@ namespace BooruDatasetTagManager
             tabPage1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage1.Size = new System.Drawing.Size(445, 303);
             tabPage1.TabIndex = 0;
-            tabPage1.Text = "General";
+            tabPage1.Text = Program.LangManager.GetString("setting.tabPage1.Text");
             tabPage1.UseVisualStyleBackColor = true;
             // 
             // checkBox3
@@ -186,7 +188,7 @@ namespace BooruDatasetTagManager
             checkBox3.Name = "checkBox3";
             checkBox3.Size = new System.Drawing.Size(288, 19);
             checkBox3.TabIndex = 9;
-            checkBox3.Text = "Prompt to save changes when changing selection";
+            checkBox3.Text = Program.LangManager.GetString("setting.checkBox3.Text");
             checkBox3.UseVisualStyleBackColor = true;
             // 
             // textBox2
@@ -203,7 +205,7 @@ namespace BooruDatasetTagManager
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(100, 15);
             label7.TabIndex = 7;
-            label7.Text = "Separator on save";
+            label7.Text = Program.LangManager.GetString("setting.label7.Text");
             // 
             // textBox1
             // 
@@ -219,7 +221,7 @@ namespace BooruDatasetTagManager
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(100, 15);
             label6.TabIndex = 7;
-            label6.Text = "Separator on load";
+            label6.Text = Program.LangManager.GetString("setting.label6.Text");
             // 
             // checkBox4
             // 
@@ -228,7 +230,7 @@ namespace BooruDatasetTagManager
             checkBox4.Name = "checkBox4";
             checkBox4.Size = new System.Drawing.Size(216, 19);
             checkBox4.TabIndex = 6;
-            checkBox4.Text = "Fix tags on saving ('('->'\\(', ')'->'\\)' )";
+            checkBox4.Text = Program.LangManager.GetString("setting.checkBox4.Text");
             checkBox4.UseVisualStyleBackColor = true;
             // 
             // checkBox2
@@ -238,7 +240,7 @@ namespace BooruDatasetTagManager
             checkBox2.Name = "checkBox2";
             checkBox2.Size = new System.Drawing.Size(217, 19);
             checkBox2.TabIndex = 6;
-            checkBox2.Text = "Fix tags on loading (replace '_' -> ' ')";
+            checkBox2.Text = Program.LangManager.GetString("setting.checkBox2.Text");
             checkBox2.UseVisualStyleBackColor = true;
             // 
             // comboBox4
@@ -259,7 +261,7 @@ namespace BooruDatasetTagManager
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(106, 15);
             label5.TabIndex = 4;
-            label5.Text = "Autocomplete sort";
+            label5.Text = Program.LangManager.GetString("setting.label5.Text");
             // 
             // comboBox3
             // 
@@ -279,7 +281,7 @@ namespace BooruDatasetTagManager
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(117, 15);
             label4.TabIndex = 4;
-            label4.Text = "Autocomplete mode";
+            label4.Text = Program.LangManager.GetString("setting.label4.Text");
             // 
             // label9
             // 
@@ -289,7 +291,7 @@ namespace BooruDatasetTagManager
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(35, 15);
             label9.TabIndex = 2;
-            label9.Text = "chars";
+            label9.Text = Program.LangManager.GetString("setting.label9.Text");
             // 
             // label8
             // 
@@ -299,7 +301,7 @@ namespace BooruDatasetTagManager
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(140, 15);
             label8.TabIndex = 2;
-            label8.Text = "Show autocomplete after";
+            label8.Text = Program.LangManager.GetString("setting.label8.Text");
             // 
             // numericUpDown2
             // 
@@ -326,7 +328,7 @@ namespace BooruDatasetTagManager
             tabPage3.Name = "tabPage3";
             tabPage3.Size = new System.Drawing.Size(445, 303);
             tabPage3.TabIndex = 2;
-            tabPage3.Text = "UI";
+            tabPage3.Text = Program.LangManager.GetString("setting.tabPage3.Text");
             tabPage3.UseVisualStyleBackColor = true;
             // 
             // button4
@@ -335,7 +337,7 @@ namespace BooruDatasetTagManager
             button4.Name = "button4";
             button4.Size = new System.Drawing.Size(75, 23);
             button4.TabIndex = 4;
-            button4.Text = "Change...";
+            button4.Text = Program.LangManager.GetString("setting.button4.Text");
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
@@ -370,7 +372,7 @@ namespace BooruDatasetTagManager
             button3.Name = "button3";
             button3.Size = new System.Drawing.Size(75, 23);
             button3.TabIndex = 1;
-            button3.Text = "Change...";
+            button3.Text = Program.LangManager.GetString("setting.button3.Text");
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
@@ -381,7 +383,7 @@ namespace BooruDatasetTagManager
             label12.Name = "label12";
             label12.Size = new System.Drawing.Size(138, 15);
             label12.TabIndex = 0;
-            label12.Text = "Tags gridview row height";
+            label12.Text = Program.LangManager.GetString("setting.label12.Text");
             // 
             // label13
             // 
@@ -390,7 +392,7 @@ namespace BooruDatasetTagManager
             label13.Name = "label13";
             label13.Size = new System.Drawing.Size(108, 15);
             label13.TabIndex = 0;
-            label13.Text = "Autocomplete font";
+            label13.Text = Program.LangManager.GetString("setting.label13.Text");
             // 
             // label10
             // 
@@ -399,7 +401,7 @@ namespace BooruDatasetTagManager
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(103, 15);
             label10.TabIndex = 0;
-            label10.Text = "Tags gridview font";
+            label10.Text = Program.LangManager.GetString("setting.label10.Text");
             // 
             // tabPage2
             // 
@@ -414,7 +416,7 @@ namespace BooruDatasetTagManager
             tabPage2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage2.Size = new System.Drawing.Size(445, 303);
             tabPage2.TabIndex = 1;
-            tabPage2.Text = "Translations";
+            tabPage2.Text = Program.LangManager.GetString("setting.tabPage2.Text");
             tabPage2.UseVisualStyleBackColor = true;
             // 
             // checkBox1
@@ -425,7 +427,7 @@ namespace BooruDatasetTagManager
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new System.Drawing.Size(286, 19);
             checkBox1.TabIndex = 2;
-            checkBox1.Text = "Load only manual translations into autocomplete";
+            checkBox1.Text = Program.LangManager.GetString("setting.checkBox1.Text");
             checkBox1.UseVisualStyleBackColor = true;
             // 
             // label3
@@ -436,7 +438,7 @@ namespace BooruDatasetTagManager
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(103, 15);
             label3.TabIndex = 0;
-            label3.Text = "Translation service";
+            label3.Text = Program.LangManager.GetString("setting.label3.Text");
             // 
             // comboBox2
             // 
@@ -461,7 +463,7 @@ namespace BooruDatasetTagManager
             Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             Name = "Form_settings";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "Settings";
+            Text =  Program.LangManager.GetString("setting.form.Title");
             Load += Form_settings_Load;
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             tabControl1.ResumeLayout(false);

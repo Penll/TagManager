@@ -52,7 +52,7 @@ namespace BooruDatasetTagManager
             Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             Name = "Form_Edit";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "Text";
+            Text = Program.LangManager.GetString("edit.form.Title");
             ResumeLayout(false);
             PerformLayout();
         }

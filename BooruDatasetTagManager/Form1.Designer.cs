@@ -1,4 +1,5 @@
 ﻿
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace BooruDatasetTagManager
@@ -185,7 +186,7 @@ namespace BooruDatasetTagManager
             toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton2.Name = "toolStripButton2";
             toolStripButton2.Size = new System.Drawing.Size(33, 36);
-            toolStripButton2.Text = "Add";
+            toolStripButton2.Text = Program.LangManager.GetString("toolStripButton2.Text");
             toolStripButton2.Click += toolStripButton2_Click;
             // 
             // toolStripButton3
@@ -195,7 +196,7 @@ namespace BooruDatasetTagManager
             toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton3.Name = "toolStripButton3";
             toolStripButton3.Size = new System.Drawing.Size(33, 36);
-            toolStripButton3.Text = "Delete";
+            toolStripButton3.Text = Program.LangManager.GetString("toolStripButton3.Text");
             toolStripButton3.Click += toolStripButton3_Click;
             // 
             // toolStripButton1
@@ -205,7 +206,7 @@ namespace BooruDatasetTagManager
             toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton1.Name = "toolStripButton1";
             toolStripButton1.Size = new System.Drawing.Size(33, 36);
-            toolStripButton1.Text = "Apply";
+            toolStripButton1.Text = Program.LangManager.GetString("toolStripButton1.Text");
             toolStripButton1.Click += toolStripButton1_Click;
             // 
             // toolStripButton11
@@ -215,7 +216,7 @@ namespace BooruDatasetTagManager
             toolStripButton11.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton11.Name = "toolStripButton11";
             toolStripButton11.Size = new System.Drawing.Size(33, 36);
-            toolStripButton11.Text = "Reset";
+            toolStripButton11.Text = Program.LangManager.GetString("toolStripButton11.Text");
             toolStripButton11.Click += toolStripButton11_Click;
             // 
             // toolStripSeparator1
@@ -230,7 +231,7 @@ namespace BooruDatasetTagManager
             toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton9.Name = "toolStripButton9";
             toolStripButton9.Size = new System.Drawing.Size(33, 36);
-            toolStripButton9.Text = "Copy tags";
+            toolStripButton9.Text = Program.LangManager.GetString("toolStripButton9.Text");
             toolStripButton9.Click += toolStripButton9_Click;
             // 
             // toolStripButton10
@@ -240,7 +241,7 @@ namespace BooruDatasetTagManager
             toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton10.Name = "toolStripButton10";
             toolStripButton10.Size = new System.Drawing.Size(33, 36);
-            toolStripButton10.Text = "Paste tags";
+            toolStripButton10.Text = Program.LangManager.GetString("toolStripButton10.Text");
             toolStripButton10.Click += toolStripButton10_Click;
             // 
             // toolStripButton17
@@ -250,7 +251,7 @@ namespace BooruDatasetTagManager
             toolStripButton17.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton17.Name = "toolStripButton17";
             toolStripButton17.Size = new System.Drawing.Size(33, 36);
-            toolStripButton17.Text = "Set current tag list to all";
+            toolStripButton17.Text = Program.LangManager.GetString("toolStripButton17.Text");
             toolStripButton17.Click += toolStripButton17_Click;
             // 
             // toolStripSeparator2
@@ -265,7 +266,7 @@ namespace BooruDatasetTagManager
             toolStripButton15.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton15.Name = "toolStripButton15";
             toolStripButton15.Size = new System.Drawing.Size(33, 36);
-            toolStripButton15.Text = "Paste from clipboard";
+            toolStripButton15.Text = Program.LangManager.GetString("toolStripButton15.Text");
             toolStripButton15.Click += toolStripButton15_Click;
             // 
             // toolStripButton16
@@ -275,7 +276,7 @@ namespace BooruDatasetTagManager
             toolStripButton16.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton16.Name = "toolStripButton16";
             toolStripButton16.Size = new System.Drawing.Size(33, 36);
-            toolStripButton16.Text = "Show formed tag text";
+            toolStripButton16.Text = Program.LangManager.GetString("toolStripButton16.Text");
             toolStripButton16.Click += toolStripButton16_Click;
             // 
             // toolStripSeparator4
@@ -290,7 +291,7 @@ namespace BooruDatasetTagManager
             toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton4.Name = "toolStripButton4";
             toolStripButton4.Size = new System.Drawing.Size(33, 36);
-            toolStripButton4.Text = "Up";
+            toolStripButton4.Text = Program.LangManager.GetString("toolStripButton4.Text");
             toolStripButton4.Click += toolStripButton4_Click;
             // 
             // toolStripButton5
@@ -300,7 +301,7 @@ namespace BooruDatasetTagManager
             toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton5.Name = "toolStripButton5";
             toolStripButton5.Size = new System.Drawing.Size(33, 36);
-            toolStripButton5.Text = "Down";
+            toolStripButton5.Text = Program.LangManager.GetString("toolStripButton5.Text");
             toolStripButton5.Click += toolStripButton5_Click;
             // 
             // toolStripSeparator7
@@ -315,7 +316,7 @@ namespace BooruDatasetTagManager
             toolStripButton23.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton23.Name = "toolStripButton23";
             toolStripButton23.Size = new System.Drawing.Size(33, 36);
-            toolStripButton23.Text = "Fing tag in \"All tags\"";
+            toolStripButton23.Text = Program.LangManager.GetString("toolStripButton23.Text");
             toolStripButton23.Click += toolStripButton23_Click;
             // 
             // menuStrip1
@@ -335,34 +336,34 @@ namespace BooruDatasetTagManager
             fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { openFolderToolStripMenuItem, saveAllChangesToolStripMenuItem, loadLossFromFileToolStripMenuItem, settingsToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             fileToolStripMenuItem.Size = new System.Drawing.Size(46, 25);
-            fileToolStripMenuItem.Text = "File";
+            fileToolStripMenuItem.Text = Program.LangManager.GetString("fileToolStripMenuItem.Text");
             // 
             // openFolderToolStripMenuItem
             // 
             openFolderToolStripMenuItem.Name = "openFolderToolStripMenuItem";
             openFolderToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
-            openFolderToolStripMenuItem.Text = "Load folder...";
+            openFolderToolStripMenuItem.Text = Program.LangManager.GetString("openFolderToolStripMenuItem.Text");
             openFolderToolStripMenuItem.Click += openFolderToolStripMenuItem_Click;
             // 
             // saveAllChangesToolStripMenuItem
             // 
             saveAllChangesToolStripMenuItem.Name = "saveAllChangesToolStripMenuItem";
             saveAllChangesToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
-            saveAllChangesToolStripMenuItem.Text = "Save all changes";
+            saveAllChangesToolStripMenuItem.Text = Program.LangManager.GetString("saveAllChangesToolStripMenuItem.Text");
             saveAllChangesToolStripMenuItem.Click += saveAllChangesToolStripMenuItem_Click;
             // 
             // loadLossFromFileToolStripMenuItem
             // 
             loadLossFromFileToolStripMenuItem.Name = "loadLossFromFileToolStripMenuItem";
             loadLossFromFileToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
-            loadLossFromFileToolStripMenuItem.Text = "Load loss from file";
+            loadLossFromFileToolStripMenuItem.Text = Program.LangManager.GetString("loadLossFromFileToolStripMenuItem.Text");
             loadLossFromFileToolStripMenuItem.Click += loadLossFromFileToolStripMenuItem_Click;
             // 
             // settingsToolStripMenuItem
             // 
             settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             settingsToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
-            settingsToolStripMenuItem.Text = "Settings...";
+            settingsToolStripMenuItem.Text = Program.LangManager.GetString("settingsToolStripMenuItem.Text");
             settingsToolStripMenuItem.Click += settingsToolStripMenuItem_Click;
             // 
             // viewToolStripMenuItem
@@ -370,20 +371,20 @@ namespace BooruDatasetTagManager
             viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { showPreviewToolStripMenuItem, translateTagsToolStripMenuItem });
             viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             viewToolStripMenuItem.Size = new System.Drawing.Size(56, 25);
-            viewToolStripMenuItem.Text = "View";
+            viewToolStripMenuItem.Text = Program.LangManager.GetString("viewToolStripMenuItem.Text");
             // 
             // showPreviewToolStripMenuItem
             // 
             showPreviewToolStripMenuItem.Name = "showPreviewToolStripMenuItem";
             showPreviewToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
-            showPreviewToolStripMenuItem.Text = "Show preview";
+            showPreviewToolStripMenuItem.Text = Program.LangManager.GetString("showPreviewToolStripMenuItem.Text");
             showPreviewToolStripMenuItem.Click += showPreviewToolStripMenuItem_Click;
             // 
             // translateTagsToolStripMenuItem
             // 
             translateTagsToolStripMenuItem.Name = "translateTagsToolStripMenuItem";
             translateTagsToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
-            translateTagsToolStripMenuItem.Text = "Translate tags";
+            translateTagsToolStripMenuItem.Text = Program.LangManager.GetString("translateTagsToolStripMenuItem.Text");
             translateTagsToolStripMenuItem.Click += translateTagsToolStripMenuItem_Click;
             // 
             // label1
@@ -397,7 +398,7 @@ namespace BooruDatasetTagManager
             label1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 5);
             label1.Size = new System.Drawing.Size(70, 30);
             label1.TabIndex = 5;
-            label1.Text = "Dataset";
+            label1.Text = Program.LangManager.GetString("label1.Text");
             // 
             // label2
             // 
@@ -410,7 +411,7 @@ namespace BooruDatasetTagManager
             label2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 5);
             label2.Size = new System.Drawing.Size(94, 30);
             label2.TabIndex = 5;
-            label2.Text = "Image tags";
+            label2.Text = Program.LangManager.GetString("label2.Text");
             // 
             // gridViewAllTags
             // 
@@ -458,7 +459,7 @@ namespace BooruDatasetTagManager
             label3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 5);
             label3.Size = new System.Drawing.Size(69, 30);
             label3.TabIndex = 5;
-            label3.Text = "All tags";
+            label3.Text = Program.LangManager.GetString("label3.Text");
             // 
             // toolStrip1
             // 
@@ -480,7 +481,7 @@ namespace BooruDatasetTagManager
             toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton6.Name = "toolStripButton6";
             toolStripButton6.Size = new System.Drawing.Size(33, 36);
-            toolStripButton6.Text = "Change all tags/common tags";
+            toolStripButton6.Text = Program.LangManager.GetString("toolStripButton6.Text");
             toolStripButton6.Click += toolStripButton6_Click;
             // 
             // toolStripButton7
@@ -490,7 +491,7 @@ namespace BooruDatasetTagManager
             toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton7.Name = "toolStripButton7";
             toolStripButton7.Size = new System.Drawing.Size(33, 36);
-            toolStripButton7.Text = "Add to all";
+            toolStripButton7.Text = Program.LangManager.GetString("toolStripButton7.Text");
             toolStripButton7.Click += toolStripButton7_Click;
             // 
             // toolStripButton12
@@ -500,7 +501,7 @@ namespace BooruDatasetTagManager
             toolStripButton12.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton12.Name = "toolStripButton12";
             toolStripButton12.Size = new System.Drawing.Size(33, 36);
-            toolStripButton12.Text = "Remove from all";
+            toolStripButton12.Text = Program.LangManager.GetString("toolStripButton12.Text");
             toolStripButton12.Click += toolStripButton12_Click;
             // 
             // toolStripButton8
@@ -510,7 +511,7 @@ namespace BooruDatasetTagManager
             toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton8.Name = "toolStripButton8";
             toolStripButton8.Size = new System.Drawing.Size(33, 36);
-            toolStripButton8.Text = "Replace tag";
+            toolStripButton8.Text = Program.LangManager.GetString("toolStripButton8.Text");
             toolStripButton8.Click += toolStripButton8_Click;
             // 
             // toolStripSeparator3
@@ -525,7 +526,7 @@ namespace BooruDatasetTagManager
             toolStripButton19.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton19.Name = "toolStripButton19";
             toolStripButton19.Size = new System.Drawing.Size(33, 36);
-            toolStripButton19.Text = "Add selected 'All tags' to image tags";
+            toolStripButton19.Text = Program.LangManager.GetString("toolStripButton19.Text");
             toolStripButton19.Click += toolStripButton19_Click;
             // 
             // toolStripButton20
@@ -535,7 +536,7 @@ namespace BooruDatasetTagManager
             toolStripButton20.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton20.Name = "toolStripButton20";
             toolStripButton20.Size = new System.Drawing.Size(33, 36);
-            toolStripButton20.Text = "Remove selected 'All tags' from image tags";
+            toolStripButton20.Text = Program.LangManager.GetString("toolStripButton20.Text");
             toolStripButton20.Click += toolStripButton20_Click;
             // 
             // toolStripSeparator5
@@ -550,7 +551,7 @@ namespace BooruDatasetTagManager
             toolStripButton21.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton21.Name = "toolStripButton21";
             toolStripButton21.Size = new System.Drawing.Size(33, 36);
-            toolStripButton21.Text = "Add to filtered";
+            toolStripButton21.Text = Program.LangManager.GetString("toolStripButton21.Text");
             toolStripButton21.Click += toolStripButton21_Click;
             // 
             // toolStripButton22
@@ -560,7 +561,7 @@ namespace BooruDatasetTagManager
             toolStripButton22.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton22.Name = "toolStripButton22";
             toolStripButton22.Size = new System.Drawing.Size(33, 36);
-            toolStripButton22.Text = "Remove from filtered";
+            toolStripButton22.Text = Program.LangManager.GetString("toolStripButton22.Text");
             toolStripButton22.Click += toolStripButton22_Click;
             // 
             // toolStripSeparator6
@@ -575,7 +576,7 @@ namespace BooruDatasetTagManager
             toolStripButton18.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton18.Name = "toolStripButton18";
             toolStripButton18.Size = new System.Drawing.Size(33, 36);
-            toolStripButton18.Text = "Multi-tag filtering mode";
+            toolStripButton18.Text = Program.LangManager.GetString("toolStripButton18.Text");
             toolStripButton18.Click += toolStripButton18_Click;
             // 
             // toolStripButton13
@@ -585,7 +586,7 @@ namespace BooruDatasetTagManager
             toolStripButton13.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton13.Name = "toolStripButton13";
             toolStripButton13.Size = new System.Drawing.Size(33, 36);
-            toolStripButton13.Text = "Find in dataset";
+            toolStripButton13.Text = Program.LangManager.GetString("toolStripButton13.Text");
             toolStripButton13.Click += toolStripButton13_Click;
             // 
             // toolStripButton14
@@ -596,7 +597,7 @@ namespace BooruDatasetTagManager
             toolStripButton14.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton14.Name = "toolStripButton14";
             toolStripButton14.Size = new System.Drawing.Size(33, 36);
-            toolStripButton14.Text = "Reset filter";
+            toolStripButton14.Text = Program.LangManager.GetString("toolStripButton14.Text");
             toolStripButton14.Click += toolStripButton14_Click;
             // 
             // toolStripSeparator8
@@ -611,7 +612,7 @@ namespace BooruDatasetTagManager
             toolStripButton24.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton24.Name = "toolStripButton24";
             toolStripButton24.Size = new System.Drawing.Size(33, 36);
-            toolStripButton24.Text = "Filter in all tags";
+            toolStripButton24.Text = Program.LangManager.GetString("toolStripButton24.Text");
             toolStripButton24.Click += toolStripButton24_Click;
             // 
             // toolStripButton25
@@ -621,7 +622,7 @@ namespace BooruDatasetTagManager
             toolStripButton25.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButton25.Name = "toolStripButton25";
             toolStripButton25.Size = new System.Drawing.Size(33, 36);
-            toolStripButton25.Text = "Remove filter";
+            toolStripButton25.Text = Program.LangManager.GetString("toolStripButton25.Text");
             toolStripButton25.Click += toolStripButton25_Click;
             // 
             // statusStrip1
@@ -759,14 +760,14 @@ namespace BooruDatasetTagManager
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
             toolStripMenuItem1.Size = new System.Drawing.Size(191, 22);
-            toolStripMenuItem1.Text = "Open folder";
+            toolStripMenuItem1.Text = Program.LangManager.GetString("toolStripMenuItem1.Text");
             toolStripMenuItem1.Click += toolStripMenuItem1_Click;
             // 
             // toolStripMenuItem2
             // 
             toolStripMenuItem2.Name = "toolStripMenuItem2";
             toolStripMenuItem2.Size = new System.Drawing.Size(191, 22);
-            toolStripMenuItem2.Text = "Delete image and tags";
+            toolStripMenuItem2.Text = Program.LangManager.GetString("toolStripMenuItem2.Text");
             toolStripMenuItem2.Click += toolStripMenuItem2_Click;
             // 
             // Form1

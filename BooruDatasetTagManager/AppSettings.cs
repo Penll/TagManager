@@ -12,6 +12,7 @@ namespace BooruDatasetTagManager
     public class AppSettings
     {
         public string TranslationLanguage { get; set; } = "zh-CN";
+        public string AppLanguage { get; set; } = "zh-CN";//TODO:通过配置设置
         public int PreviewSize { get; set; } = 160;
         [JsonIgnore]
         public List<LanguageItem> AvaibleLanguages;

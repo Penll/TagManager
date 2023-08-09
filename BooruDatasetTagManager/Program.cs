@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Newtonsoft.Json;
-using System.IO;
-using System.Diagnostics;
-using System.Threading;
 
 namespace BooruDatasetTagManager
 {
@@ -19,11 +14,16 @@ namespace BooruDatasetTagManager
         static void Main()
         {
             Application.EnableVisualStyles();
+
+
 #if NET5_0_OR_GREATER
             Application.SetHighDpiMode(HighDpiMode.PerMonitorV2);
 #endif
             Application.SetCompatibleTextRenderingDefault(false);
             Settings = new AppSettings(Application.StartupPath);
+
+            LangManager = new LangManager(Settings.AppLanguage);
+
             #region waitForm
             Form f_wait = new Form();
             f_wait.AutoScaleMode = AutoScaleMode.Dpi;
@@ -33,12 +33,12 @@ namespace BooruDatasetTagManager
             f_wait.ControlBox = false;
             f_wait.StartPosition = FormStartPosition.CenterScreen;
             Label mes = new Label();
-            mes.Text = "Please wait while the tags are loading.\nWhen changing csv or txt files,\nthe initial loading of tags may take a long time.";
+            mes.Text = LangManager.GetString("startUpLoadingMsg"); ;
             mes.Location = new System.Drawing.Point(10, 10);
             mes.AutoSize = true;
 
             f_wait.Controls.Add(mes);
-            
+
             f_wait.Shown += async (o, i) =>
             {
                 await Task.Run(() =>
@@ -49,7 +49,7 @@ namespace BooruDatasetTagManager
                     TransManager = new TranslationManager(Program.Settings.TranslationLanguage, Program.Settings.TransService, translationsDir);
                     TransManager.LoadTranslations();
                     string tagsDir = Path.Combine(Application.StartupPath, "Tags");
-                    if(!Directory.Exists(tagsDir))
+                    if (!Directory.Exists(tagsDir))
                         Directory.CreateDirectory(tagsDir);
                     string tagFile = Path.Combine(tagsDir, "List.tdb");
                     TagsList = TagsDB.LoadFromTagFile(tagFile);
@@ -81,5 +81,7 @@ namespace BooruDatasetTagManager
         public static AppSettings Settings;
 
         public static TagsDB TagsList;
+
+        public static LangManager LangManager;
     }
 }

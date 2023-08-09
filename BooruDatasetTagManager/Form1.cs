@@ -526,9 +526,9 @@ namespace BooruDatasetTagManager
         {
             isAllTags = !isAllTags;
             if (isAllTags)
-                label3.Text = "All tags";
+                label3.Text = Program.LangManager.GetString("label3.Text");
             else
-                label3.Text = "Common tags";
+                label3.Text = Program.LangManager.GetString("label3.commontags.Text");
             BindTagList();
         }
 
@@ -1412,7 +1412,7 @@ namespace BooruDatasetTagManager
         {
             if (gridViewDS.SelectedRows.Count != 1)
             {
-                statusLabel.Text = "The number of selected images is not equal to 1";
+                statusLabel.Text = Program.LangManager.GetString("statusLabelTheNumberOfSelectedImagesIsNotEqualTo1");
                 return;
             }
 
@@ -1430,7 +1430,7 @@ namespace BooruDatasetTagManager
         {
             if (gridViewDS.SelectedRows.Count < 2)
             {
-                statusLabel.Text = "The number of selected images must be greater than 1";
+                statusLabel.Text = Program.LangManager.GetString("statusLabelTheNumberOfSelectedImagesMustBeGreaterThan1");
                 return;
             }
             //List<string> selectedImages = new List<string>();
@@ -1502,7 +1502,7 @@ namespace BooruDatasetTagManager
         {
             if (gridViewDS.SelectedRows.Count == 0)
             {
-                statusLabel.Text = "The number of selected images must be greater than 0";
+                statusLabel.Text = Program.LangManager.GetString("statusLabelTheNumberOfSelectedImagesMustBeGreaterThan0");
                 return;
             }
 
@@ -1544,7 +1544,7 @@ namespace BooruDatasetTagManager
         {
             if (gridViewAllTags.SelectedCells.Count == 0 || gridViewDS.SelectedRows.Count == 0)
             {
-                statusLabel.Text = "Images or tags not selected!";
+                statusLabel.Text = Program.LangManager.GetString("statusLabelImagesOrTagsNotSelected");
                 return;
             }
             foreach (var item in GetSelectedTagsInAllTags())
@@ -1562,7 +1562,7 @@ namespace BooruDatasetTagManager
         {
             if (gridViewAllTags.SelectedCells.Count == 0 || gridViewDS.SelectedRows.Count == 0)
             {
-                statusLabel.Text = "Images or tags not selected!";
+                statusLabel.Text = Program.LangManager.GetString("statusLabelImagesOrTagsNotSelected");
                 return;
             }
             foreach (var item in GetSelectedTagsInAllTags())
@@ -1631,7 +1631,7 @@ namespace BooruDatasetTagManager
             Form_settings settings = new Form_settings();
             if (settings.ShowDialog() == DialogResult.OK)
             {
-                statusLabel.Text = "Settings have been saved";
+                statusLabel.Text = Program.LangManager.GetString("statusLabelSettingsHaveBeenSaved");
             }
             settings.Close();
         }

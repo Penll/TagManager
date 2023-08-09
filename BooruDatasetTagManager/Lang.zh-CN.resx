@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+    <value>文件</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>图片列表</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>图片标签</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>所有标签</value>
+  </data>
+  <data name="loadLossFromFileToolStripMenuItem.Text" xml:space="preserve">
+    <value>从文件加载loss</value>
+  </data>
+  <data name="openFolderToolStripMenuItem.Text" xml:space="preserve">
+    <value>打开文件夹...</value>
+  </data>
+  <data name="saveAllChangesToolStripMenuItem.Text" xml:space="preserve">
+    <value>保存所有更改</value>
+  </data>
+  <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
+    <value>设置...</value>
+  </data>
+  <data name="showPreviewToolStripMenuItem.Text" xml:space="preserve">
+    <value>显示预览</value>
+  </data>
+  <data name="toolStripButton1.Text" xml:space="preserve">
+    <value>应用</value>
+  </data>
+  <data name="toolStripButton10.Text" xml:space="preserve">
+    <value>粘贴标签</value>
+  </data>
+  <data name="toolStripButton11.Text" xml:space="preserve">
+    <value>重置</value>
+  </data>
+  <data name="toolStripButton12.Text" xml:space="preserve">
+    <value>移除全部</value>
+  </data>
+  <data name="toolStripButton13.Text" xml:space="preserve">
+    <value>图片列表内查找对应标签</value>
+  </data>
+  <data name="toolStripButton14.Text" xml:space="preserve">
+    <value>重置过滤</value>
+  </data>
+  <data name="toolStripButton15.Text" xml:space="preserve">
+    <value>从剪贴板粘贴</value>
+  </data>
+  <data name="toolStripButton16.Text" xml:space="preserve">
+    <value>展示标签文本</value>
+  </data>
+  <data name="toolStripButton17.Text" xml:space="preserve">
+    <value>当前列表设置到“空标签图片/全部图片”</value>
+  </data>
+  <data name="toolStripButton18.Text" xml:space="preserve">
+    <value>标签筛选模式切换</value>
+  </data>
+  <data name="toolStripButton19.Text" xml:space="preserve">
+    <value>添加选择标签到当前图片</value>
+  </data>
+  <data name="toolStripButton2.Text" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="toolStripButton20.Text" xml:space="preserve">
+    <value>在当前图片内移除选择的标签</value>
+  </data>
+  <data name="toolStripButton21.Text" xml:space="preserve">
+    <value>添加标签（已筛选图片）</value>
+  </data>
+  <data name="toolStripButton22.Text" xml:space="preserve">
+    <value>移除标签（已筛选图片）</value>
+  </data>
+  <data name="toolStripButton23.Text" xml:space="preserve">
+    <value>定位标签在“全部标签”的位置</value>
+  </data>
+  <data name="toolStripButton24.Text" xml:space="preserve">
+    <value>在“全部标签”筛选</value>
+  </data>
+  <data name="toolStripButton25.Text" xml:space="preserve">
+    <value>移除筛选</value>
+  </data>
+  <data name="toolStripButton3.Text" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="toolStripButton4.Text" xml:space="preserve">
+    <value>移上</value>
+  </data>
+  <data name="toolStripButton5.Text" xml:space="preserve">
+    <value>移下</value>
+  </data>
+  <data name="toolStripButton6.Text" xml:space="preserve">
+    <value>全部标签/通用标签（切换）</value>
+  </data>
+  <data name="toolStripButton7.Text" xml:space="preserve">
+    <value>添加全部</value>
+  </data>
+  <data name="toolStripButton8.Text" xml:space="preserve">
+    <value>替换标签</value>
+  </data>
+  <data name="toolStripButton9.Text" xml:space="preserve">
+    <value>拷贝标签</value>
+  </data>
+  <data name="toolStripMenuItem1.Text" xml:space="preserve">
+    <value>打开文件夹</value>
+  </data>
+  <data name="toolStripMenuItem2.Text" xml:space="preserve">
+    <value>删除图片和标签</value>
+  </data>
+  <data name="translateTagsToolStripMenuItem.Text" xml:space="preserve">
+    <value>翻译标签</value>
+  </data>
+  <data name="viewToolStripMenuItem.Text" xml:space="preserve">
+    <value>视图</value>
+  </data>
+  <data name="setting.button1.Text" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="setting.button2.Text" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="setting.button3.Text" xml:space="preserve">
+    <value>修改...</value>
+  </data>
+  <data name="setting.button4.Text" xml:space="preserve">
+    <value>修改...</value>
+  </data>
+  <data name="setting.checkBox1.Text" xml:space="preserve">
+    <value>仅将手动翻译加载到自动完成中</value>
+  </data>
+  <data name="setting.checkBox2.Text" xml:space="preserve">
+    <value>修复加载时的标签（替换 '_' -&gt; ' '）</value>
+  </data>
+  <data name="setting.checkBox3.Text" xml:space="preserve">
+    <value>更改选择时提示保存更改</value>
+  </data>
+  <data name="setting.checkBox4.Text" xml:space="preserve">
+    <value>修复保存时的标签 ('('-&gt;'\\(', ')'-&gt;'\\)' )</value>
+  </data>
+  <data name="setting.label1.Text" xml:space="preserve">
+    <value>翻译语言</value>
+  </data>
+  <data name="setting.label10.Text" xml:space="preserve">
+    <value>表格标签字体</value>
+  </data>
+  <data name="setting.label12.Text" xml:space="preserve">
+    <value>表格标签行高</value>
+  </data>
+  <data name="setting.label13.Text" xml:space="preserve">
+    <value>自动完成字体</value>
+  </data>
+  <data name="setting.label2.Text" xml:space="preserve">
+    <value>预览图像尺寸</value>
+  </data>
+  <data name="setting.label3.Text" xml:space="preserve">
+    <value>翻译服务</value>
+  </data>
+  <data name="setting.label4.Text" xml:space="preserve">
+    <value>自动完成模式</value>
+  </data>
+  <data name="setting.label5.Text" xml:space="preserve">
+    <value>自动完成排序</value>
+  </data>
+  <data name="setting.label6.Text" xml:space="preserve">
+    <value>加载时分隔符</value>
+  </data>
+  <data name="setting.label7.Text" xml:space="preserve">
+    <value>保存时分隔符</value>
+  </data>
+  <data name="setting.label8.Text" xml:space="preserve">
+    <value>之后显示自动完成</value>
+  </data>
+  <data name="setting.label9.Text" xml:space="preserve">
+    <value>字符</value>
+  </data>
+  <data name="setting.tabPage1.Text" xml:space="preserve">
+    <value>通用</value>
+  </data>
+  <data name="setting.tabPage2.Text" xml:space="preserve">
+    <value>翻译</value>
+  </data>
+  <data name="setting.tabPage3.Text" xml:space="preserve">
+    <value>界面</value>
+  </data>
+  <data name="addtag.form.Title" xml:space="preserve">
+    <value>添加标签</value>
+  </data>
+  <data name="addtag.label1.Text" xml:space="preserve">
+    <value>标签</value>
+  </data>
+  <data name="addtag.label2.Text" xml:space="preserve">
+    <value>添加位置</value>
+  </data>
+  <data name="cancel.button.Text" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="edit.form.Title" xml:space="preserve">
+    <value>文本</value>
+  </data>
+  <data name="filter.form.Title" xml:space="preserve">
+    <value>“全部标签”筛选</value>
+  </data>
+  <data name="filter.label1.Text" xml:space="preserve">
+    <value>筛选文本</value>
+  </data>
+  <data name="label3.commontags.Text" xml:space="preserve">
+    <value>通用标签</value>
+  </data>
+  <data name="ok.button.Text" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="preview.form.Title" xml:space="preserve">
+    <value>预览</value>
+  </data>
+  <data name="replace.form.Title" xml:space="preserve">
+    <value>替换全部</value>
+  </data>
+  <data name="replace.label1.Text" xml:space="preserve">
+    <value>原标签</value>
+  </data>
+  <data name="replace.label2.Text" xml:space="preserve">
+    <value>新标签</value>
+  </data>
+  <data name="setting.form.Title" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="startUpLoadingMsg" xml:space="preserve">
+    <value>正在加载标签，请稍候。\n更改 csv 或 txt 文件时，\n标签的初始加载可能需要很长时间。</value>
+  </data>
+  <data name="statusLabelImagesOrTagsNotSelected" xml:space="preserve">
+    <value>请选择图像或标签！</value>
+  </data>
+  <data name="statusLabelSettingsHaveBeenSaved" xml:space="preserve">
+    <value>设置已保存</value>
+  </data>
+  <data name="statusLabelTheNumberOfSelectedImagesIsNotEqualTo1" xml:space="preserve">
+    <value>所选图像数量不等于1</value>
+  </data>
+  <data name="statusLabelTheNumberOfSelectedImagesMustBeGreaterThan0" xml:space="preserve">
+    <value>所选图像数量必须大于0</value>
+  </data>
+  <data name="statusLabelTheNumberOfSelectedImagesMustBeGreaterThan1" xml:space="preserve">
+    <value>所选图像数量必须大于1</value>
+  </data>
+</root>

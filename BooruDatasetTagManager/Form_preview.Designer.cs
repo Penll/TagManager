@@ -53,7 +53,7 @@ namespace BooruDatasetTagManager
             Name = "Form_preview";
             ShowIcon = false;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "Preview";
+            Text = Program.LangManager.GetString("preview.form.Title");//"Preview";
             TopMost = true;
             VisibleChanged += Form_preview_VisibleChanged;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
