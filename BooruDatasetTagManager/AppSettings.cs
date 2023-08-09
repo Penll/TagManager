@@ -11,11 +11,11 @@ namespace BooruDatasetTagManager
 {
     public class AppSettings
     {
-        public string TranslationLanguage { get; set; } = "ru";
-        public int PreviewSize { get; set; } = 130;
+        public string TranslationLanguage { get; set; } = "zh-CN";
+        public int PreviewSize { get; set; } = 160;
         [JsonIgnore]
         public List<LanguageItem> AvaibleLanguages;
-        public TranslationService TransService { get; set; } = TranslationService.GoogleTranslate;
+        public TranslationService TransService { get; set; } = TranslationService.CustomTranslate;
         public bool OnlyManualTransInAutocomplete { get; set; } = false;
         public AutocompleteMode AutocompleteMode { get; set; } = AutocompleteMode.StartWith;
         public AutocompleteSort AutocompleteSort { get; set; } = AutocompleteSort.Alphabetical;
